@@ -9,4 +9,4 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-NS_INLINE NSString *NSStringFromCLLocationCoordinate2D(CLLocationCoordinate2D coordinate);
+inline NSString *NSStringFromCLLocationCoordinate2D(CLLocationCoordinate2D coordinate);
