@@ -10,6 +10,7 @@
 #import <sys/sysctl.h>
 #import <mach/mach.h>
 #import "NSObject+ASCategory.h"
+#import "NSDate+ASCategory.h"
 
 inline BOOL doubleEqualToDouble(double double1, double double2)
 {
@@ -125,100 +126,11 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
     }
 }
 
-- (NSString *)stringFromDate:(NSDate *)date dateFormat:(NSString *)format
-{
-    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
-    [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setTimeZone:[NSTimeZone localTimeZone]];
-    [formatter setDateFormat:format];
-    
-    return [formatter stringFromDate:date];
-}
-
-- (NSDate *)dateFromString:(NSString *)string dateFormat:(NSString *)format
-{
-    NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
-    [formatter setLocale:[NSLocale currentLocale]];
-    [formatter setTimeZone:[NSTimeZone localTimeZone]];
-    [formatter setDateFormat:format];
-    
-    return [formatter dateFromString:string];
-}
-
-- (NSString *)thisYear
-{
-    return [self stringFromDate:[NSDate date] dateFormat:kDateFormatYearOnly];
-}
-
-- (NSString *)thisMonth
-{
-    return [self stringFromDate:[NSDate date] dateFormat:kDateFormatMonthOnly];
-}
-
-- (NSString *)theDateToday
-{
-    return [self stringFromDate:[NSDate date] dateFormat:kDateFormatTheDateTodayOnly];
-}
-
-- (NSString *)thisHour
-{
-    return [self stringFromDate:[NSDate date] dateFormat:kDateFormatHourOnly];
-}
-
-- (NSString *)thisMinute
-{
-    return [self stringFromDate:[NSDate date] dateFormat:kDateFormatMinuteOnly];
-}
-
-- (NSDate *)dateWithDayInterval:(NSInteger)dayInterval sinceDate:(NSDate *)sinceDate
-{
-    NSTimeInterval timeInterval = 60 * 60 * 24 * dayInterval;
-    return [NSDate dateWithTimeInterval:timeInterval sinceDate:sinceDate];
-}
-
-- (NSDate *)midnightDateFromDate:(NSDate *)date
-{
-    NSString *dateOnly = [self stringFromDate:date dateFormat:kDateFormatSlash];
-    NSString *timeOnly = @"00:00:00";
-    NSString *newDate = [NSString stringWithFormat:@"%@ %@",dateOnly,timeOnly];
-    return [self dateFromString:newDate dateFormat:kDateFormatSlashLong];
-}
-
-- (NSDate *)noondayFromDate:(NSDate *)date
-{
-    NSString *dateOnly = [self stringFromDate:date dateFormat:kDateFormatSlash];
-    NSString *timeOnly = @"12:00:00";
-    NSString *newDate = [NSString stringWithFormat:@"%@ %@",dateOnly,timeOnly];
-    return [self dateFromString:newDate dateFormat:kDateFormatSlashLong];
-}
-
 - (void)standardUserDefaultsSetObject:(id)value forKey:(NSString *)key
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:value forKey:key];
     [userDefaults synchronize];
-}
-
-- (NSString *)genderFromIDNumber:(NSString *)number
-{
-    NSString *result = @"M";
-    NSUInteger length = [number length];
-    if (!([number characterAtIndex:length - 2] % 2)) {
-        result = @"F";
-    }
-    return result;
-}
-
-- (NSDate *)birthdayFromIDNumber:(NSString *)number
-{
-    NSUInteger length = [number length];
-    NSString *birthday = nil;
-    if (length == 18) {
-        birthday = [number substringWithRange:NSMakeRange(6, 8)];
-    } else if (length == 15) {
-        birthday = [NSString stringWithFormat:@"%d%@",19,[number substringWithRange:NSMakeRange(6, 6)]];
-    }
-    return [self dateFromString:birthday dateFormat:kDateFormatNatural];
 }
 
 - (UIImage *)imageWithContentsOfFileNamed:(NSString *)name

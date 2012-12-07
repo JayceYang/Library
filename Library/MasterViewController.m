@@ -10,6 +10,8 @@
 
 #import "DetailViewController.h"
 #import "ASSupplement.h"
+#import "NSDate+Helper.h"
+#import "NSDate+ASCategory.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -54,14 +56,14 @@
     [tableHeaderView addSubview:avatarButton];
     self.tableView.tableHeaderView = tableHeaderView;
     
-    int64_t delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        CGRect frame = tableHeaderView.frame;
-        frame.size.height += self.tableView.rowHeight;
-        tableHeaderView.frame = frame;
-        self.tableView.tableHeaderView = tableHeaderView;
-    });
+//    int64_t delayInSeconds = 2.0;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        CGRect frame = tableHeaderView.frame;
+//        frame.size.height += self.tableView.rowHeight;
+//        tableHeaderView.frame = frame;
+//        self.tableView.tableHeaderView = tableHeaderView;
+//    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,7 +107,7 @@
 
 
     NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    cell.textLabel.text = [NSDate stringForDisplayFromDate:[object dateWithDayInterval:-1000 sinceDate:object] prefixed:NO alwaysDisplayTime:YES];
     return cell;
 }
 
