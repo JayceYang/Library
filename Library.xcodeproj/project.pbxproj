@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281E0877167192FB00065AE6 /* ASGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E0876167192FB00065AE6 /* ASGeometry.m */; };
 		2843F86C167038E600135623 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F86B167038E600135623 /* UIKit.framework */; };
 		2843F86E167038E600135623 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F86D167038E600135623 /* Foundation.framework */; };
 		2843F870167038E600135623 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F86F167038E600135623 /* CoreGraphics.framework */; };
@@ -44,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		281E0875167192FB00065AE6 /* ASGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeometry.h; sourceTree = "<group>"; };
+		281E0876167192FB00065AE6 /* ASGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeometry.m; sourceTree = "<group>"; };
 		2843F867167038E600135623 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2843F86B167038E600135623 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2843F86D167038E600135623 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -235,6 +238,8 @@
 				2843F9D5167044FE00135623 /* UIView+ASCategory.m */,
 				2843F9D6167044FE00135623 /* UIViewController+ASCategory.h */,
 				2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */,
+				281E0875167192FB00065AE6 /* ASGeometry.h */,
+				281E0876167192FB00065AE6 /* ASGeometry.m */,
 			);
 			path = ASSupplementCore;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				2843F9E9167044FE00135623 /* UITextField+ASCategory.m in Sources */,
 				2843F9EA167044FE00135623 /* UIView+ASCategory.m in Sources */,
 				2843F9EB167044FE00135623 /* UIViewController+ASCategory.m in Sources */,
+				281E0877167192FB00065AE6 /* ASGeometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,3 +27,4 @@
 #import "NSString+ASCategory.h"
 #import "NSMutableString+ASCategory.h"
 #import "NSObject+ASCategory.h"
+#import "ASGeometry.h"
