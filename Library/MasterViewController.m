@@ -55,7 +55,7 @@
     avatarButton.maskLabel.text = @"Chinese:Jayce Yang";
     [tableHeaderView addSubview:avatarButton];
     self.tableView.tableHeaderView = tableHeaderView;
-    
+    [tableHeaderView release];
 //    int64_t delayInSeconds = 2.0;
 //    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
 //    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -107,7 +107,11 @@
 
 
     NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [NSDate stringForDisplayFromDate:[object dateWithDayInterval:-1000 sinceDate:object] prefixed:NO alwaysDisplayTime:YES];
+//    cell.textLabel.text = [[object today] timestamp];
+//    ASLog(@"%@\t%@",[object stringFromDate:[object today] dateFormat:kDateFormatHorizontalLineLong],[object stringFromDate:[object dateWithDayInterval:-1 sinceDate:object] dateFormat:kDateFormatHorizontalLineLong]);
+    NSDate *testDate = [object dateByAddingDayInterval:-400];
+    ASLog(@"%d\t%d",[object thisDay],[testDate year]);
+    cell.textLabel.text = [(NSDate *)testDate timestamp];
     return cell;
 }
 

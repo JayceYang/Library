@@ -14,6 +14,7 @@
 #define kDateFormatMonthOnly                @"MM"
 #define kDateFormatTheDateTodayOnly         @"dd"
 #define kDateFormatTimeOnly                 @"HH:mm:ss"
+#define kDateFormatTimeShortOnly            @"HH:mm"
 #define kDateFormatHourOnly                 @"HH"
 #define kDateFormatMinuteOnly               @"mm"
 #define kDateFormatChinese                  @"yyyy年MM月dd日"
@@ -27,17 +28,33 @@
 
 @interface NSDate (ASCategory)
 
-- (NSString *)stringFromDate:(NSDate *)date dateFormat:(NSString *)format;
-- (NSDate *)dateFromString:(NSString *)string dateFormat:(NSString *)format;
-- (NSString *)thisYear;
-- (NSString *)thisMonth;
-- (NSString *)theDateToday;
-- (NSString *)thisHour;
-- (NSString *)thisMinute;
+
 - (NSDate *)dateWithDayInterval:(NSInteger)dayInterval sinceDate:(NSDate *)sinceDate;
 - (NSDate *)midnightDateFromDate:(NSDate *)date;
 - (NSDate *)noondayFromDate:(NSDate *)date;
+
+- (NSString *)stringFromDate:(NSDate *)date dateFormat:(NSString *)format;
+- (NSDate *)dateFromString:(NSString *)string dateFormat:(NSString *)format;
+- (NSDate *)theDayBeforeYesterday;
+- (NSDate *)yesterday;
+- (NSDate *)today;
+- (NSDate *)tomorrow;
+- (NSDate *)theDayAfterTomorrow;
+- (NSDate *)dateByAddingDayInterval:(NSInteger)interval;
 - (NSString *)timestamp;
+- (NSString *)timestampSimple;
+- (NSInteger)thisYear;
+- (NSInteger)thisMonth;
+- (NSInteger)thisDay;
+- (NSInteger)thisHour;
+- (NSInteger)thisMinute;
+- (NSInteger)thisSecond;
+- (NSInteger)year;
+- (NSInteger)month;
+- (NSInteger)day;
+- (NSInteger)hour;
+- (NSInteger)minute;
+- (NSInteger)second;
 
 - (NSString *)genderFromIDNumber:(NSString *)number;    //male results "M", female returns "F"
 - (NSDate *)birthdayFromIDNumber:(NSString *)number;    //returns the date with format like "yyyyMMdd"
