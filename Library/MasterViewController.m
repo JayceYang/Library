@@ -108,9 +108,8 @@
 
     NSDate *object = _objects[indexPath.row];
 //    cell.textLabel.text = [[object today] timestamp];
-//    ASLog(@"%@\t%@",[object stringFromDate:[object today] dateFormat:kDateFormatHorizontalLineLong],[object stringFromDate:[object dateWithDayInterval:-1 sinceDate:object] dateFormat:kDateFormatHorizontalLineLong]);
-    NSDate *testDate = [object dateByAddingDayInterval:-400];
-    ASLog(@"%d\t%d",[object thisDay],[testDate year]);
+    NSDate *testDate = [object dateByAddingDayInterval:-4];
+//    ASLog(@"%d\t%d\t%@\t%@",[object thisDay],[testDate year],[object midnight],[object midday]);
     cell.textLabel.text = [(NSDate *)testDate timestamp];
     return cell;
 }

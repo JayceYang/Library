@@ -28,19 +28,17 @@
 
 @interface NSDate (ASCategory)
 
-
-- (NSDate *)dateWithDayInterval:(NSInteger)dayInterval sinceDate:(NSDate *)sinceDate;
-- (NSDate *)midnightDateFromDate:(NSDate *)date;
-- (NSDate *)noondayFromDate:(NSDate *)date;
-
-- (NSString *)stringFromDate:(NSDate *)date dateFormat:(NSString *)format;
-- (NSDate *)dateFromString:(NSString *)string dateFormat:(NSString *)format;
 - (NSDate *)theDayBeforeYesterday;
 - (NSDate *)yesterday;
 - (NSDate *)today;
 - (NSDate *)tomorrow;
 - (NSDate *)theDayAfterTomorrow;
+- (NSDate *)midnight;
+- (NSDate *)midday;
+//- (NSDate *)dateWithDayInterval:(NSInteger)dayInterval sinceDate:(NSDate *)sinceDate;
 - (NSDate *)dateByAddingDayInterval:(NSInteger)interval;
+- (NSDate *)dateByAddingDayIntervalSinceNow:(NSInteger)interval;
+- (NSString *)stringValueWithDateFormat:(NSString *)format;
 - (NSString *)timestamp;
 - (NSString *)timestampSimple;
 - (NSInteger)thisYear;
@@ -55,8 +53,5 @@
 - (NSInteger)hour;
 - (NSInteger)minute;
 - (NSInteger)second;
-
-- (NSString *)genderFromIDNumber:(NSString *)number;    //male results "M", female returns "F"
-- (NSDate *)birthdayFromIDNumber:(NSString *)number;    //returns the date with format like "yyyyMMdd"
 
 @end
