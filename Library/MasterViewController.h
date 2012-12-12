@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TableBasedViewController.h"
 
 @class DetailViewController;
 

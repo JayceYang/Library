@@ -9,6 +9,7 @@
 #import "UIViewController+ASCategory.h"
 #import "UIView+ASCategory.h"
 #import "NSObject+ASCategory.h"
+#import "LoadingView.h"
 
 @implementation UIViewController (ASCategory)
 
@@ -81,6 +82,16 @@
     } else {
         return CGPointMake(CGRectGetHeight(self.view.bounds) * .5, CGRectGetWidth(self.view.bounds) * .5);
     }
+}
+
+- (void)showLoadingView
+{
+    [[LoadingView sharedView] appearInViewController:self block:YES];
+}
+
+- (void)hideLoadingView
+{
+    [[LoadingView sharedView] disappear];
 }
 
 @end

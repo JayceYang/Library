@@ -45,6 +45,10 @@
 		2843F9E9167044FE00135623 /* UITextField+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D3167044FE00135623 /* UITextField+ASCategory.m */; };
 		2843F9EA167044FE00135623 /* UIView+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D5167044FE00135623 /* UIView+ASCategory.m */; };
 		2843F9EB167044FE00135623 /* UIViewController+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */; };
+		284D202D1678873F00953E11 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 284D202C1678873F00953E11 /* LoadingView.m */; };
+		28BE789516759021006C61FC /* UITableView+PullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789016759020006C61FC /* UITableView+PullToRefresh.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		28BE789616759021006C61FC /* UITableView+PullToLoadMore.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789216759020006C61FC /* UITableView+PullToLoadMore.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		28BE789716759021006C61FC /* TableBasedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789416759021006C61FC /* TableBasedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +121,14 @@
 		2843F9D5167044FE00135623 /* UIView+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ASCategory.m"; sourceTree = "<group>"; };
 		2843F9D6167044FE00135623 /* UIViewController+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ASCategory.h"; sourceTree = "<group>"; };
 		2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ASCategory.m"; sourceTree = "<group>"; };
+		284D202B1678873F00953E11 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		284D202C1678873F00953E11 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		28BE788F16759020006C61FC /* UITableView+PullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PullToRefresh.h"; sourceTree = "<group>"; };
+		28BE789016759020006C61FC /* UITableView+PullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PullToRefresh.m"; sourceTree = "<group>"; };
+		28BE789116759020006C61FC /* UITableView+PullToLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PullToLoadMore.h"; sourceTree = "<group>"; };
+		28BE789216759020006C61FC /* UITableView+PullToLoadMore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PullToLoadMore.m"; sourceTree = "<group>"; };
+		28BE789316759020006C61FC /* TableBasedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableBasedViewController.h; sourceTree = "<group>"; };
+		28BE789416759021006C61FC /* TableBasedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableBasedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +187,12 @@
 				2843F8971670390F00135623 /* MasterViewController.m */,
 				2843F8941670390F00135623 /* DetailViewController.h */,
 				2843F8951670390F00135623 /* DetailViewController.m */,
+				28BE788F16759020006C61FC /* UITableView+PullToRefresh.h */,
+				28BE789016759020006C61FC /* UITableView+PullToRefresh.m */,
+				28BE789116759020006C61FC /* UITableView+PullToLoadMore.h */,
+				28BE789216759020006C61FC /* UITableView+PullToLoadMore.m */,
+				28BE789316759020006C61FC /* TableBasedViewController.h */,
+				28BE789416759021006C61FC /* TableBasedViewController.m */,
 				2843F872167038E600135623 /* Supporting Files */,
 			);
 			path = Library;
@@ -253,6 +271,8 @@
 				281E08831671C0AD00065AE6 /* NSDate+Helper.m */,
 				281E0875167192FB00065AE6 /* ASGeometry.h */,
 				281E0876167192FB00065AE6 /* ASGeometry.m */,
+				284D202B1678873F00953E11 /* LoadingView.h */,
+				284D202C1678873F00953E11 /* LoadingView.m */,
 			);
 			path = ASSupplementCore;
 			sourceTree = "<group>";
@@ -352,6 +372,10 @@
 				281E0877167192FB00065AE6 /* ASGeometry.m in Sources */,
 				281E08811671B81B00065AE6 /* NSDate+ASCategory.m in Sources */,
 				281E08841671C0AD00065AE6 /* NSDate+Helper.m in Sources */,
+				28BE789516759021006C61FC /* UITableView+PullToRefresh.m in Sources */,
+				28BE789616759021006C61FC /* UITableView+PullToLoadMore.m in Sources */,
+				28BE789716759021006C61FC /* TableBasedViewController.m in Sources */,
+				284D202D1678873F00953E11 /* LoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

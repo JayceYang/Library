@@ -13,9 +13,13 @@
 #import "NSDate+Helper.h"
 #import "NSDate+ASCategory.h"
 
-@interface MasterViewController () {
-    NSMutableArray *_objects;
-}
+#import "UITableView+PullToRefresh.h"
+#import "UITableView+PullToLoadMore.h"
+
+@interface MasterViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSMutableArray *objects;
+
 @end
 
 @implementation MasterViewController
@@ -28,9 +32,10 @@
     }
     return self;
 }
-							
+
 - (void)dealloc
 {
+    ASLog();
     [_detailViewController release];
     [_objects release];
     [super dealloc];
@@ -40,8 +45,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    //    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    //    [self.tableView addPullToLoadMore];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
     UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)] autorelease];
     self.navigationItem.rightBarButtonItem = addButton;
     
@@ -54,16 +66,27 @@
     avatarButton.maskLabel.textAlignment = UITextAlignmentLeft;
     avatarButton.maskLabel.text = @"Chinese:Jayce Yang";
     [tableHeaderView addSubview:avatarButton];
+    
     self.tableView.tableHeaderView = tableHeaderView;
     [tableHeaderView release];
-//    int64_t delayInSeconds = 2.0;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//        CGRect frame = tableHeaderView.frame;
-//        frame.size.height += self.tableView.rowHeight;
-//        tableHeaderView.frame = frame;
-//        self.tableView.tableHeaderView = tableHeaderView;
-//    });
+    
+    [self showLoadingView];
+    int64_t delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self hideLoadingView];
+    });
+    //    [[LoadingView sharedView] appearWithBlock:YES];
+    //    self.tableView.tableHeaderView = tableHeaderView;
+    
+    //    int64_t delayInSeconds = 2.0;
+    //    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    //    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    //        CGRect frame = tableHeaderView.frame;
+    //        frame.size.height += self.tableView.rowHeight;
+    //        tableHeaderView.frame = frame;
+    //        self.tableView.tableHeaderView = tableHeaderView;
+    //    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,11 +98,42 @@
 - (void)insertNewObject:(id)sender
 {
     if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+        self.objects = [[[NSMutableArray alloc] init] autorelease];
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
+    //    [_objects insertObject:[NSDate date] atIndex:0];
+    [_objects addObject:[NSDate date]];
+    //    [self.tableView reloadData];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)refresh
+{
+    //    [super refresh];
+    //
+    //    ASLog();
+    //    int64_t delayInSeconds = 2.0;
+    //    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    //    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    //        [self endRefreshing];
+    //    });
+}
+
+- (void)loadMore
+{
+    //[super loadMore];
+    
+    ASLog();
+    [self insertNewObject:nil];
+    
+    //[self endLoadingMore];
+}
+
+- (void)toNewPage
+{
+    MasterViewController *masterViewController = [[MasterViewController alloc] init];
+    [self.navigationController pushViewController:masterViewController animated:YES];
+    [masterViewController release];
 }
 
 #pragma mark - Table View
@@ -91,7 +145,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    NSInteger count = _objects.count;
+    //    ASLog(@"%d",count);
+    return count;
 }
 
 // Customize the appearance of table view cells.
@@ -104,12 +160,12 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-
-
+    
+    
     NSDate *object = _objects[indexPath.row];
-//    cell.textLabel.text = [[object today] timestamp];
+    //    cell.textLabel.text = [[object today] timestamp];
     NSDate *testDate = [object dateByAddingDayInterval:-4];
-//    ASLog(@"%d\t%d\t%@\t%@",[object thisDay],[testDate year],[object midnight],[object midday]);
+    //    ASLog(@"%d\t%d\t%@\t%@",[object thisDay],[testDate year],[object midnight],[object midday]);
     cell.textLabel.text = [(NSDate *)testDate timestamp];
     return cell;
 }
@@ -131,20 +187,20 @@
 }
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

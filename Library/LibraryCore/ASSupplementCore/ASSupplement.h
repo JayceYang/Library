@@ -29,3 +29,4 @@
 #import "NSObject+ASCategory.h"
 #import "NSDate+ASCategory.h"
 #import "ASGeometry.h"
+#import "LoadingView.h"

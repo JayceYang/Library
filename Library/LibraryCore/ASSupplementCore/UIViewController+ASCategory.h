@@ -19,5 +19,7 @@
 - (CGRect)mainBounds;
 - (CGRect)mainBoundsMinusHeight:(CGFloat)minus;
 - (CGPoint)center;
+- (void)showLoadingView;
+- (void)hideLoadingView;
 
 @end
