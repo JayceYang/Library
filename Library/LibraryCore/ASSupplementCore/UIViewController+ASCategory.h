@@ -16,6 +16,7 @@
 - (void)configureLeftBarButtonItemImage:(UIImage *)image leftBarButtonItemAction:(SEL)action;
 - (void)configureRightBarButtonItemImage:(UIImage *)image rightBarButtonItemAction:(SEL)action;
 - (void)back:(id)sender;    /* [self.navigationController popViewControllerAnimated:YES] is the default action, overwrite it if needed */
+- (void)cancel:(id)sender;
 - (CGRect)mainBounds;
 - (CGRect)mainBoundsMinusHeight:(CGFloat)minus;
 - (CGPoint)center;

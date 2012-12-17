@@ -50,15 +50,12 @@
 
 - (void)back:(id)sender
 {
-    UIViewController *viewController = [self.navigationController.topViewController retain];
-    if (SystemVersionGreaterThanOrEqualTo5 == NO) {
-        [viewController viewWillDisappear:YES];
-    }
     [self.navigationController popViewControllerAnimated:YES];
-    if (SystemVersionGreaterThanOrEqualTo5 == NO) {
-        [viewController viewDidDisappear:YES];
-    }
-    [viewController release];
+}
+
+- (void)cancel:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (CGRect)mainBounds
