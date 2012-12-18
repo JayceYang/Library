@@ -174,6 +174,7 @@
     textField.text = text;
     textField.textColor = textColor;
     textField.textAlignment = alignment;
+    textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     textField.font = font;
     return [textField autorelease];
 }
