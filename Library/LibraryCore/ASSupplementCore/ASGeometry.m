@@ -12,3 +12,8 @@ NSString *NSStringFromCLLocationCoordinate2D(CLLocationCoordinate2D coordinate)
 {
     return [NSString stringWithFormat:@"latitude:%lf\tlongitude:%lf",coordinate.latitude,coordinate.longitude];
 }
+
+NSString *NSStringFromCGSize(CGSize size)
+{
+    return [NSString stringWithFormat:@"width:%lf\theight:%lf",size.width,size.height];
+}

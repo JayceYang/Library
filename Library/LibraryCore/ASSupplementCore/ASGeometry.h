@@ -10,3 +10,4 @@
 #import <CoreLocation/CoreLocation.h>
 
 inline NSString *NSStringFromCLLocationCoordinate2D(CLLocationCoordinate2D coordinate);
+inline NSString *NSStringFromCGSize(CGSize size);
