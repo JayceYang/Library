@@ -87,6 +87,7 @@
     //        tableHeaderView.frame = frame;
     //        self.tableView.tableHeaderView = tableHeaderView;
     //    });
+    ASLog(@"%@",[[UIDevice currentDevice] detailModel]);
 }
 
 - (void)didReceiveMemoryWarning

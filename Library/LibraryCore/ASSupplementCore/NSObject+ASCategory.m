@@ -7,8 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import <sys/sysctl.h>
-#import <mach/mach.h>
+
 #import "NSObject+ASCategory.h"
 #import "NSDate+ASCategory.h"
 
@@ -22,71 +21,7 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
     return fabs(double1 - double2) <= pow(10, - accuracyExponent);
 }
 
-// -------------------------- Device Model -------------------------- //
-
-#define kDeviceModel                        @"deviceModel"
-#define kDeviceModelPad                     @"iPad"
-#define kDeviceModelPhone                   @"iPhone"
-#define kDeviceModelPod                     @"iPod touch"
-
 @implementation NSObject (ASCategory)
-
-- (BOOL)padDeviceModel
-{
-    return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ? YES : NO;
-}
-
-- (BOOL)retinaDisplaySupported
-{
-    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [[UIScreen mainScreen] scale] == 2) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
-- (NSString *)deviceModel
-{
-    if ([self padDeviceModel]) {
-        return kDeviceModelPad;
-    } else {
-        return kDeviceModelPhone;
-    }
-}
-
-// 获取当前设备可用内存(单位：MB）
-- (double)availableMemory
-{
-    vm_statistics_data_t vmStats;
-    mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
-    kern_return_t kernReturn = host_statistics(mach_host_self(),
-                                               HOST_VM_INFO,
-                                               (host_info_t)&vmStats,
-                                               &infoCount);
-    
-    if (kernReturn != KERN_SUCCESS) {
-        return 0;
-    }
-    
-    return ((vm_page_size * vmStats.free_count) / 1024.0) / 1024.0;
-}
-
-// 获取当前任务所占用的内存（单位：MB）
-- (double)memoryUsedByCurrentTask
-{
-    task_basic_info_data_t taskInfo;
-    mach_msg_type_number_t infoCount = TASK_BASIC_INFO_COUNT;
-    kern_return_t kernReturn = task_info(mach_task_self(),
-                                         TASK_BASIC_INFO,
-                                         (task_info_t)&taskInfo,
-                                         &infoCount);
-    
-    if (kernReturn != KERN_SUCCESS) {
-        return 0;
-    }
-    
-    return taskInfo.resident_size / 1024.0 / 1024.0;
-}
 
 - (NSInteger)integerValueFromValue:(id)value
 {

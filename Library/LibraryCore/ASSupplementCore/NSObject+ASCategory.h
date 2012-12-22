@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-BOOL doubleEqualToDouble(double double1, double double2);
-BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int accuracyExponent);
-
 #ifndef ASLog
 #if DEBUG
-#define ASLog(fmt, ...) NSLog((@"%s [Line %d] " fmt),__PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define ASLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
 #define ASLog(fmt, ...)
 #endif
@@ -22,15 +19,10 @@ BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int
 #define SystemVersionGreaterThanOrEqualTo(version) ([[[UIDevice currentDevice] systemVersion] floatValue] >= version)
 #define SystemVersionGreaterThanOrEqualTo5 SystemVersionGreaterThanOrEqualTo(5.0f)
 
-#define kExtensionPNG                       @"png"
+BOOL doubleEqualToDouble(double double1, double double2);
+BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int accuracyExponent);
 
 @interface NSObject (ASCategory)
-
-- (BOOL)padDeviceModel;
-- (BOOL)retinaDisplaySupported;
-- (NSString *)deviceModel;
-- (double)availableMemory;  //(单位：MB）
-- (double)memoryUsedByCurrentTask;   //(单位：MB）
 
 - (NSInteger)integerValueFromValue:(id)value;
 - (BOOL)boolValueFromValue:(id)value;

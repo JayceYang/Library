@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280359CA1685B2A200BBE177 /* UIDevice+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 280359C91685B2A200BBE177 /* UIDevice+ASCategory.m */; };
 		281E0877167192FB00065AE6 /* ASGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E0876167192FB00065AE6 /* ASGeometry.m */; };
 		281E08811671B81B00065AE6 /* NSDate+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E08801671B81B00065AE6 /* NSDate+ASCategory.m */; };
 		281E08841671C0AD00065AE6 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E08831671C0AD00065AE6 /* NSDate+Helper.m */; };
@@ -52,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		280359C81685B2A200BBE177 /* UIDevice+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ASCategory.h"; sourceTree = "<group>"; };
+		280359C91685B2A200BBE177 /* UIDevice+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ASCategory.m"; sourceTree = "<group>"; };
 		281E0875167192FB00065AE6 /* ASGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeometry.h; sourceTree = "<group>"; };
 		281E0876167192FB00065AE6 /* ASGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeometry.m; sourceTree = "<group>"; };
 		281E087F1671B81B00065AE6 /* NSDate+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ASCategory.h"; sourceTree = "<group>"; };
@@ -267,6 +270,8 @@
 				2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */,
 				281E087F1671B81B00065AE6 /* NSDate+ASCategory.h */,
 				281E08801671B81B00065AE6 /* NSDate+ASCategory.m */,
+				280359C81685B2A200BBE177 /* UIDevice+ASCategory.h */,
+				280359C91685B2A200BBE177 /* UIDevice+ASCategory.m */,
 				281E08821671C0AD00065AE6 /* NSDate+Helper.h */,
 				281E08831671C0AD00065AE6 /* NSDate+Helper.m */,
 				281E0875167192FB00065AE6 /* ASGeometry.h */,
@@ -376,6 +381,7 @@
 				28BE789616759021006C61FC /* UITableView+PullToLoadMore.m in Sources */,
 				28BE789716759021006C61FC /* TableBasedViewController.m in Sources */,
 				284D202D1678873F00953E11 /* LoadingView.m in Sources */,
+				280359CA1685B2A200BBE177 /* UIDevice+ASCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
