@@ -205,7 +205,7 @@ typedef enum {
     }
 }
 
-- (UIDeviceFamily) deviceFamily
+- (UIDeviceFamily)deviceFamily
 {
     NSString *platform = [self platform];
     if ([platform hasPrefix:@"iPhone"])
@@ -220,7 +220,7 @@ typedef enum {
     return UIDeviceFamilyUnknown;
 }
 
-- (NSString*)UUIDString
+- (NSString *)UUID
 {
     CFUUIDRef UUIDRef = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef stringRef = CFUUIDCreateString(kCFAllocatorDefault, UUIDRef);

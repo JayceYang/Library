@@ -29,7 +29,7 @@ typedef enum {
 - (UIDeviceFamily)deviceFamily;
 - (NSString *)detailModel;
 
-- (NSString *)UUIDString;
+- (NSString *)UUID;
 - (NSString *)MACAddress;
 
 @end
