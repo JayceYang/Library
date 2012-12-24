@@ -24,6 +24,8 @@
         self.frame = rect;
         
         //self.center = CGPointMake(self.superview.bounds.size.width * .5, self.superview.bounds.size.height * .5);
+    } else {
+        height = width;
     }
     
     return height;
@@ -43,6 +45,8 @@
         self.frame = rect;
         
         //self.center = CGPointMake(self.superview.bounds.size.width * .5, self.superview.bounds.size.height * .5);
+    } else {
+        width = height;
     }
     
     return width;
