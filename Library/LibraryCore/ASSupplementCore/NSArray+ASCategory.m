@@ -31,4 +31,9 @@
     }
 }
 
+- (id)firstObject
+{
+    return [self objectAtTheIndex:0];
+}
+
 @end
