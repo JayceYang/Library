@@ -76,17 +76,7 @@
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         [self hideLoadingView];
     });
-    //    [[LoadingView sharedView] appearWithBlock:YES];
-    //    self.tableView.tableHeaderView = tableHeaderView;
     
-    //    int64_t delayInSeconds = 2.0;
-    //    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    //    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-    //        CGRect frame = tableHeaderView.frame;
-    //        frame.size.height += self.tableView.rowHeight;
-    //        tableHeaderView.frame = frame;
-    //        self.tableView.tableHeaderView = tableHeaderView;
-    //    });
     ASLog(@"%@",[[UIDevice currentDevice] detailModel]);
 }
 

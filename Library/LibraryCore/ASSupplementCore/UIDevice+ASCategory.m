@@ -28,6 +28,7 @@ NSString * const iPodtouch1G                = @"iPod touch 1G";
 NSString * const iPodtouch2G                = @"iPod touch 2G";
 NSString * const iPodtouch3G                = @"iPod touch 3G";
 NSString * const iPodtouch4G                = @"iPod touch 4G";
+NSString * const iPodtouch5G                = @"iPod touch 5G";
 NSString * const UnknowniPod                = @"Unknown iPod";
 
 NSString * const iPad1G                     = @"iPad 1G";
@@ -65,6 +66,7 @@ typedef enum {
     UIDevice2GiPod,
     UIDevice3GiPod,
     UIDevice4GiPod,
+    UIDevice5GiPod,
     
     UIDevice1GiPad,
     UIDevice2GiPad,
@@ -167,6 +169,8 @@ typedef enum {
             return iPodtouch3G;
         case UIDevice4GiPod:
             return iPodtouch4G;
+        case UIDevice5GiPod:
+            return iPodtouch5G;
         case UIDeviceUnknowniPod:
             return UnknowniPod;
             
@@ -330,6 +334,8 @@ typedef enum {
         return UIDevice3GiPod;
     if ([platform hasPrefix:@"iPod4"])
         return UIDevice4GiPod;
+    if ([platform hasPrefix:@"iPod5"])
+        return UIDevice5GiPod;
     
     // iPad
     if ([platform hasPrefix:@"iPad1"])

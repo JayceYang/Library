@@ -48,6 +48,7 @@ extern NSString * const iPodtouch1G;
 extern NSString * const iPodtouch2G;
 extern NSString * const iPodtouch3G;
 extern NSString * const iPodtouch4G;
+extern NSString * const iPodtouch5G;
 extern NSString * const UnknowniPod;
 
 extern NSString * const iPad1G;
