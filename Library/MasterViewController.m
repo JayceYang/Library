@@ -78,6 +78,13 @@
     });
     
     ASLog(@"%@",[[UIDevice currentDevice] detailModel]);
+    
+    [CLGeocoder reverseGeocodeCoordinate:CLLocationCoordinate2DMake(22.541201, 113.95275) completionHandler:^(NSString *address, NSError *error) {
+        ASLog(@"%@",address);
+    }];
+    [CLGeocoder reverseGeocodeLocation:[[[CLLocation alloc] initWithLatitude:22.541201 longitude:113.95275] autorelease] completionHandler:^(NSString *address, NSError *error) {
+        ASLog(@"%@",address);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

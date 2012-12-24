@@ -47,6 +47,8 @@
 		2843F9EA167044FE00135623 /* UIView+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D5167044FE00135623 /* UIView+ASCategory.m */; };
 		2843F9EB167044FE00135623 /* UIViewController+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */; };
 		284D202D1678873F00953E11 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 284D202C1678873F00953E11 /* LoadingView.m */; };
+		286796E2168838DA00EDF957 /* CLGeocoder+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 286796E1168838DA00EDF957 /* CLGeocoder+ASCategory.m */; };
+		286796E516883B3D00EDF957 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286796E416883B3D00EDF957 /* CoreLocation.framework */; };
 		28BE789516759021006C61FC /* UITableView+PullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789016759020006C61FC /* UITableView+PullToRefresh.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		28BE789616759021006C61FC /* UITableView+PullToLoadMore.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789216759020006C61FC /* UITableView+PullToLoadMore.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		28BE789716759021006C61FC /* TableBasedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789416759021006C61FC /* TableBasedViewController.m */; };
@@ -126,6 +128,9 @@
 		2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ASCategory.m"; sourceTree = "<group>"; };
 		284D202B1678873F00953E11 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		284D202C1678873F00953E11 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		286796E0168838DA00EDF957 /* CLGeocoder+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+ASCategory.h"; sourceTree = "<group>"; };
+		286796E1168838DA00EDF957 /* CLGeocoder+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+ASCategory.m"; sourceTree = "<group>"; };
+		286796E416883B3D00EDF957 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		28BE788F16759020006C61FC /* UITableView+PullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PullToRefresh.h"; sourceTree = "<group>"; };
 		28BE789016759020006C61FC /* UITableView+PullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PullToRefresh.m"; sourceTree = "<group>"; };
 		28BE789116759020006C61FC /* UITableView+PullToLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PullToLoadMore.h"; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 				2843F870167038E600135623 /* CoreGraphics.framework in Frameworks */,
 				2843F91E167039CD00135623 /* QuartzCore.framework in Frameworks */,
 				2843F920167039D600135623 /* MapKit.framework in Frameworks */,
+				286796E516883B3D00EDF957 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +177,7 @@
 		2843F86A167038E600135623 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				286796E416883B3D00EDF957 /* CoreLocation.framework */,
 				2843F91F167039D600135623 /* MapKit.framework */,
 				2843F91D167039CD00135623 /* QuartzCore.framework */,
 				2843F86B167038E600135623 /* UIKit.framework */,
@@ -278,6 +285,8 @@
 				281E0876167192FB00065AE6 /* ASGeometry.m */,
 				284D202B1678873F00953E11 /* LoadingView.h */,
 				284D202C1678873F00953E11 /* LoadingView.m */,
+				286796E0168838DA00EDF957 /* CLGeocoder+ASCategory.h */,
+				286796E1168838DA00EDF957 /* CLGeocoder+ASCategory.m */,
 			);
 			path = ASSupplementCore;
 			sourceTree = "<group>";
@@ -382,6 +391,7 @@
 				28BE789716759021006C61FC /* TableBasedViewController.m in Sources */,
 				284D202D1678873F00953E11 /* LoadingView.m in Sources */,
 				280359CA1685B2A200BBE177 /* UIDevice+ASCategory.m in Sources */,
+				286796E2168838DA00EDF957 /* CLGeocoder+ASCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

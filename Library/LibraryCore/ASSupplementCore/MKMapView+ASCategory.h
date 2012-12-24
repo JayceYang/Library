@@ -10,11 +10,12 @@
 
 @interface MKMapView (ASCategory)
 
-//- (void)setZoomLevel:(NSUInteger)zoomLevel animated:(BOOL)animated;
-- (void)setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate zoomLevel:(NSUInteger)zoomLevel animated:(BOOL)animated;
+- (void)zoomToFitAnnotations;
+- (void)zoomToFitAnnotationsWithSideSpacingFactor:(CGFloat)factor;
 - (void)removeAllAnnotations;
-- (void)reloadData;
+- (void)reloadAnnotations;
 - (void)reloadAnnotationViewWithAnnotation:(id <MKAnnotation>)annotation;
-- (void)setVerificationRegion:(MKCoordinateRegion)region animated:(BOOL)animated;
+- (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated outOfBoundsBlock:(void (^)(void))block;
 - (void)addOverlay:(id <MKOverlay>)overlay ignoreDuplicate:(BOOL)ignore;
+
 @end

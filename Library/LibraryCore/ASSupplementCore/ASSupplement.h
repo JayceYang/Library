@@ -29,5 +29,6 @@
 #import "NSObject+ASCategory.h"
 #import "NSDate+ASCategory.h"
 #import "UIDevice+ASCategory.h"
+#import "CLGeocoder+ASCategory.h"
 #import "ASGeometry.h"
 #import "LoadingView.h"
