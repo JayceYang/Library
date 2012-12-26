@@ -73,6 +73,28 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
 }
 
+- (NSString *)cachePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    return [paths lastObject];
+}
+
+- (NSString *)documentsPath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths lastObject];
+}
+
+- (NSURL *)cacheURL
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (NSURL *)documentsURL
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
 - (UIImage *)imageWithContentsOfFileNamed:(NSString *)name
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:@"png"];

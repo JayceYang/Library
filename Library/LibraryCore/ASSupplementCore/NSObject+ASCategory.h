@@ -32,6 +32,11 @@ BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int
 - (void)standardUserDefaultsSetObject:(id)value forKey:(NSString *)key;
 - (NSString *)bundleVersion;
 
+- (NSString *)cachePath;
+- (NSString *)documentsPath;
+- (NSURL *)cacheURL;
+- (NSURL *)documentsURL;
+
 /* load from main bundle, no cache */
 - (UIImage *)imageWithContentsOfFileNamed:(NSString *)name;
 - (UIImage *)imageFromView:(UIView *)view;

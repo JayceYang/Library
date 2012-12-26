@@ -85,6 +85,8 @@
     [CLGeocoder reverseGeocodeLocation:[[[CLLocation alloc] initWithLatitude:22.541201 longitude:113.95275] autorelease] completionHandler:^(NSString *address, NSError *error) {
         ASLog(@"%@",address);
     }];
+    
+    ASLog(@"%@",[self cacheURL]);
 }
 
 - (void)didReceiveMemoryWarning
