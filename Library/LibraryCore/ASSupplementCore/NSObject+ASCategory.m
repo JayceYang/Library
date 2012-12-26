@@ -68,6 +68,11 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
     [userDefaults synchronize];
 }
 
+- (NSString *)bundleVersion
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+}
+
 - (UIImage *)imageWithContentsOfFileNamed:(NSString *)name
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:@"png"];

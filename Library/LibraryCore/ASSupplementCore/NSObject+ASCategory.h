@@ -30,6 +30,7 @@ BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int
 - (NSDictionary *)dictionaryValueFromValue:(id)value;
 
 - (void)standardUserDefaultsSetObject:(id)value forKey:(NSString *)key;
+- (NSString *)bundleVersion;
 
 /* load from main bundle, no cache */
 - (UIImage *)imageWithContentsOfFileNamed:(NSString *)name;
