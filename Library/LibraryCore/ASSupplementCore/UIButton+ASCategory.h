@@ -11,7 +11,5 @@
 @interface UIButton (ASCategory)
 
 @property (strong, nonatomic) UILabel *maskLabel;
-@property (nonatomic) CGFloat *maskLabelPaddingLeft;
-@property (nonatomic) CGFloat *maskLabelPaddingRight;
 
 @end

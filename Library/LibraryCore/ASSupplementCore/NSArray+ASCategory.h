@@ -10,7 +10,8 @@
 
 @interface NSArray (ASCategory)
 
-- (NSArray *)sortedArrayUsingDescriptorWithKey:(NSString *)key ascending:(BOOL)ascending;   // returns a new array by sorting the objects of the receiver
+// returns a new array by sorting the objects of the receiver
+- (NSArray *)sortedArrayUsingDescriptorWithKey:(NSString *)key ascending:(BOOL)ascending;
 - (id)objectAtTheIndex:(NSUInteger)index;
 - (id)firstObject;
 

@@ -37,4 +37,7 @@ BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int
 - (UIImage *)imageFromView:(UIView *)view;
 - (UIImage *)imageFromColor:(UIColor *)color;
 
+- (UITabBarController *)tabBarControllerWithViewControllerClassNames:(NSArray *)names;
+- (UITabBarController *)tabBarControllerWithViewControllerClassNames:(NSArray *)names navigated:(BOOL)navigated;
+
 @end

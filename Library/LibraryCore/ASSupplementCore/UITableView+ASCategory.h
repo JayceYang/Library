@@ -12,5 +12,6 @@
 
 - (void)scrollToBottom;
 - (void)hideEmptyCells;
+- (void)reloadDataWithCompletion:(void(^)(void))completionBlock;
 
 @end

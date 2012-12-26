@@ -10,6 +10,7 @@
 
 @interface NSMutableArray (ASCategory)
 
-- (void)sortUsingSortDescriptorWithKey:(NSString *)key ascending:(BOOL)ascending;    // sorts the array itself
+// sorts the array itself
+- (void)sortUsingSortDescriptorWithKey:(NSString *)key ascending:(BOOL)ascending;
 
 @end

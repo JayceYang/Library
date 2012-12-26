@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+ASCategory.h"
+
 #import "UIView+ASCategory.h"
 #import "NSObject+ASCategory.h"
 #import "LoadingView.h"
@@ -14,24 +15,6 @@
 @implementation UIViewController (ASCategory)
 
 #pragma mark - Compatible
-
-- (void)presentViewController:(UIViewController *)viewControllerToPresent completion:(void (^)(void))completion animated:(BOOL)flag
-{
-    if (SystemVersionGreaterThanOrEqualTo5) {
-        [self presentViewController:viewControllerToPresent animated:flag completion:completion];
-    } else {
-        [self presentModalViewController:viewControllerToPresent animated:flag];
-    }
-}
-
-- (void)dismissViewControllerCompletion:(void (^)(void))completion animated:(BOOL)flag
-{
-    if (SystemVersionGreaterThanOrEqualTo5) {
-        [self dismissViewControllerAnimated:flag completion:completion];
-    } else {
-        [self dismissModalViewControllerAnimated:flag];
-    }
-}
 
 - (void)configureLeftBarButtonUniformly
 {

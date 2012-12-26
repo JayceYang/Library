@@ -10,8 +10,6 @@
 
 @interface UIViewController (ASCategory) 
 
-- (void)presentViewController:(UIViewController *)viewControllerToPresent completion:(void (^)(void))completion animated:(BOOL)flag;
-- (void)dismissViewControllerCompletion:(void (^)(void))completion animated:(BOOL)flag;
 - (void)configureLeftBarButtonUniformly;
 - (void)configureLeftBarButtonItemImage:(UIImage *)image leftBarButtonItemAction:(SEL)action;
 - (void)configureRightBarButtonItemImage:(UIImage *)image rightBarButtonItemAction:(SEL)action;

@@ -106,4 +106,38 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
     return image;
 }
 
+- (UITabBarController *)tabBarControllerWithViewControllerClassNames:(NSArray *)names
+{
+    return [self tabBarControllerWithViewControllerClassNames:names navigated:NO];
+}
+
+- (UITabBarController *)tabBarControllerWithViewControllerClassNames:(NSArray *)names navigated:(BOOL)navigated
+{
+    if ([names count] > 0) {
+        NSMutableArray *viewControllers = [NSMutableArray array];
+        for (NSString *viewControllerName in names) {
+            NSString *targetClassName = [self stringValueFromValue:viewControllerName];
+            if ([targetClassName length] > 0) {
+                Class targetClass = NSClassFromString(targetClassName);
+                if (targetClass) {
+                    UIViewController *viewController = [[targetClass alloc] init];
+                    if (navigated) {
+                        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+                        [viewControllers addObject:navigationController];
+                        [navigationController release];
+                    } else {
+                        [viewControllers addObject:viewController];
+                    }
+                    [viewController release];
+                }
+            }
+        }
+        UITabBarController *tabBarController = [[UITabBarController alloc] init];
+        tabBarController.viewControllers = viewControllers;
+        return [tabBarController autorelease];
+    } else {
+        return nil;
+    }
+}
+
 @end

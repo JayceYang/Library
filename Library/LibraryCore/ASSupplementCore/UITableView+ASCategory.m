@@ -24,4 +24,12 @@
     self.tableFooterView = [[[UIView alloc] initWithFrame:CGRectZero] autorelease];
 }
 
+- (void)reloadDataWithCompletion:(void(^)(void))completionBlock
+{
+    [self reloadData];
+    if (completionBlock) {
+        completionBlock();
+    }
+}
+
 @end

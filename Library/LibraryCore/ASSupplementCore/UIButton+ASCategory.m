@@ -14,8 +14,6 @@ static char UIButtonMaskLabel;
 @implementation UIButton (ASCategory)
 
 @dynamic maskLabel;
-@dynamic maskLabelPaddingLeft;
-@dynamic maskLabelPaddingRight;
 
 - (void)setMaskLabel:(UILabel *)maskLabel
 {
