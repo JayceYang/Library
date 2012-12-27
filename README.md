@@ -1,4 +1,4 @@
 Library
 =======
 
-Some useful iOS library.
+A useful supplement to iOS SDK.
