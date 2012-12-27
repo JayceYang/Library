@@ -20,13 +20,6 @@
 /* traverse responder chain for the view's viewController */
 - (UIViewController *)viewController;
 
-/* load from main bundle, no cache */
-- (UIImage *)imageWithContentsOfFileNamed:(NSString *)name;
-
-- (UIImage *)imageFromView:(UIView *)view;
-
-- (UIImage *)imageFromColor:(UIColor *)color;
-
 - (UIImageView *)imageViewWithFrame:(CGRect)frame image:(UIImage *)image;
 
 - (UIImageView *)imageViewFromView:(UIView *)view;              

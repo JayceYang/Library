@@ -7,7 +7,9 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+
 #import "UIView+ASCategory.h"
+#import "NSObject+ASCategory.h"
 #import "ASPlaceholderTextView.h"
 
 @implementation UIView (ASCategory)
@@ -21,39 +23,6 @@
         }
     }
     return nil;
-}
-
-- (UIImage *)imageWithContentsOfFileNamed:(NSString *)name
-{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:@"png"];
-    if (filePath) {
-        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
-        return image;
-    } else {
-        return nil;
-    }
-}
-
-- (UIImage *)imageFromView:(UIView *)view
-{
-    UIGraphicsBeginImageContext(view.frame.size);
-	CGContextRef context = UIGraphicsGetCurrentContext();
-	[view.layer renderInContext:context];
-	UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-    return image;
-}
-
-- (UIImage *)imageFromColor:(UIColor *)color
-{
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
 }
 
 - (UIImageView *)imageViewWithFrame:(CGRect)frame image:(UIImage *)image
