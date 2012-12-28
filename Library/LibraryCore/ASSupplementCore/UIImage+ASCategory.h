@@ -14,7 +14,10 @@
 - (UIImage *)imageToFitSize:(CGSize)size;
 - (UIImage *)blackAndWhiteImage;
 - (UIImage *)imageWithCorrectiveRotation;
+- (NSString *)writeToPNGFileWithFileName:(NSString *)name;
 - (NSString *)writeToPNGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile;
+- (NSString *)writeToJPEGFileWithFileName:(NSString *)name;
+- (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile;
 - (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile compressionQuality:(CGFloat)quality;
 
 @end

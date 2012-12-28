@@ -9,10 +9,10 @@
 #import "UIImage+ASCategory.h"
 #import "NSObject+ASCategory.h"
 
-typedef enum {
-    ImageFileFormatPNG,
-    ImageFileFormatJPEG
-} ImageFileFormat;
+//typedef enum {
+//    ImageFileFormatPNG,
+//    ImageFileFormatJPEG
+//} ImageFileFormat;
 
 @implementation UIImage (ASCategory)
 
@@ -166,28 +166,35 @@ typedef enum {
     return resultImage;
 }
 
-- (NSString *)writeToFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile imageFileFormat:(ImageFileFormat)format compressionQuality:(CGFloat)quality
+- (NSString *)writeToPNGFileWithFileName:(NSString *)name
 {
-    NSString *filePath = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@",name];
-    //ASLog(@"filePath:%@",filePath);
-    if (format == ImageFileFormatPNG) {
-        filePath = [filePath stringByAppendingString:@".png"];
-        [UIImagePNGRepresentation(self) writeToFile:filePath atomically:useAuxiliaryFile];
-    } else {
-        filePath = [filePath stringByAppendingString:@".jpeg"];
-        [UIImageJPEGRepresentation(self, quality) writeToFile:filePath atomically:useAuxiliaryFile];
-    }
-    return filePath;
+    return [self writeToPNGFileWithFileName:name atomically:YES];
 }
 
 - (NSString *)writeToPNGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile
 {
-    return [self writeToFileWithFileName:name atomically:useAuxiliaryFile imageFileFormat:ImageFileFormatPNG compressionQuality:1.0f];
+    NSString *filePath = [[self documentsPath] stringByAppendingPathComponent:name];
+    filePath = [filePath stringByAppendingPathExtension:@"png"];
+    [UIImagePNGRepresentation(self) writeToFile:filePath atomically:useAuxiliaryFile];
+    return filePath;
+}
+
+- (NSString *)writeToJPEGFileWithFileName:(NSString *)name
+{
+    return [self writeToJPEGFileWithFileName:name atomically:YES];
+}
+
+- (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile
+{
+    return [self writeToJPEGFileWithFileName:name atomically:useAuxiliaryFile compressionQuality:1.0f];
 }
 
 - (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile compressionQuality:(CGFloat)quality
 {
-    return [self writeToFileWithFileName:name atomically:useAuxiliaryFile imageFileFormat:ImageFileFormatJPEG compressionQuality:quality];
+    NSString *filePath = [[self documentsPath] stringByAppendingPathComponent:name];
+    filePath = [filePath stringByAppendingPathExtension:@"jpeg"];
+    [UIImageJPEGRepresentation(self, quality) writeToFile:filePath atomically:useAuxiliaryFile];
+    return filePath;
 }
 
 @end
