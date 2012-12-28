@@ -31,3 +31,4 @@
 #import "UIColor+ASCategory.h"
 #import "ASGeometry.h"
 #import "LoadingView.h"
+#import "LocationManager.h"
