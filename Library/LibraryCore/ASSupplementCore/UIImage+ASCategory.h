@@ -14,10 +14,14 @@
 - (UIImage *)imageToFitSize:(CGSize)size;
 - (UIImage *)blackAndWhiteImage;
 - (UIImage *)imageWithCorrectiveRotation;
-- (NSString *)writeToPNGFileWithFileName:(NSString *)name;
-- (NSString *)writeToPNGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile;
-- (NSString *)writeToJPEGFileWithFileName:(NSString *)name;
-- (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile;
-- (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile compressionQuality:(CGFloat)quality;
+
+- (NSString *)writeToFileNamed:(NSString *)name;
+- (NSString *)writeToFileNamed:(NSString *)name extension:(NSString *)extension;
+
+- (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent;
+- (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent extension:(NSString *)extension;
 
 @end
+
+extern NSString * const kExtensionPNG;
+extern NSString * const kExtensionJPEG;

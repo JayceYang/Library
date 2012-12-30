@@ -79,17 +79,8 @@
     
     ASLog(@"%@",[[UIDevice currentDevice] detailModel]);
     
-    [CLGeocoder reverseGeocodeCoordinate:CLLocationCoordinate2DMake(22.53820898, 113.95764800) completionHandler:^(NSString *address, NSError *error) {
-        ASLog(@"%@",address);
-    }];
-    [CLGeocoder reverseGeocodeLocation:[[[CLLocation alloc] initWithLatitude:22.541201 longitude:113.95275] autorelease] completionHandler:^(NSString *address, NSError *error) {
-        ASLog(@"%@",address);
-    }];
-    
-    [LocationManager sharedManager].corrective = YES;
-    [[LocationManager sharedManager] startUpdatingLocationWithSuccessHandler:^(CLLocation *location) {
-        ASLog(@"%@",location);
-    }];
+    [[UIImage imageNamed:@"Cloud.png"] writeToFileNamed:@"fdsfs"];
+    [[UIImage imageNamed:@"Cloud.png"] writeToURLWithLastPathComponent:@"fd"];
 }
 
 - (void)didReceiveMemoryWarning

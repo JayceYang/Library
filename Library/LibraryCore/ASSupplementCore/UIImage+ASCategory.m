@@ -9,6 +9,8 @@
 #import "UIImage+ASCategory.h"
 #import "NSObject+ASCategory.h"
 
+NSString * const kExtensionPNG           = @"png";
+NSString * const kExtensionJPEG          = @"jpeg";
 //typedef enum {
 //    ImageFileFormatPNG,
 //    ImageFileFormatJPEG
@@ -166,35 +168,37 @@
     return resultImage;
 }
 
-- (NSString *)writeToPNGFileWithFileName:(NSString *)name
+- (NSString *)writeToFileNamed:(NSString *)name
 {
-    return [self writeToPNGFileWithFileName:name atomically:YES];
+    return [self writeToFileNamed:name extension:kExtensionPNG];
 }
 
-- (NSString *)writeToPNGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile
+- (NSString *)writeToFileNamed:(NSString *)name extension:(NSString *)extension
 {
     NSString *filePath = [[self documentsPath] stringByAppendingPathComponent:name];
-    filePath = [filePath stringByAppendingPathExtension:@"png"];
-    [UIImagePNGRepresentation(self) writeToFile:filePath atomically:useAuxiliaryFile];
+    filePath = [filePath stringByAppendingPathExtension:extension];
+    if ([extension isEqualToString:kExtensionPNG]) {
+        [UIImagePNGRepresentation([self imageWithCorrectiveRotation]) writeToFile:filePath atomically:YES];
+    } else {
+        [UIImageJPEGRepresentation([self imageWithCorrectiveRotation], 1.0) writeToFile:filePath atomically:YES];
+    }
     return filePath;
 }
 
-- (NSString *)writeToJPEGFileWithFileName:(NSString *)name
+- (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent
 {
-    return [self writeToJPEGFileWithFileName:name atomically:YES];
+    return [self writeToURLWithLastPathComponent:pathComponent extension:kExtensionPNG];
 }
 
-- (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile
+- (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent extension:(NSString *)extension
 {
-    return [self writeToJPEGFileWithFileName:name atomically:useAuxiliaryFile compressionQuality:1.0f];
-}
-
-- (NSString *)writeToJPEGFileWithFileName:(NSString *)name atomically:(BOOL)useAuxiliaryFile compressionQuality:(CGFloat)quality
-{
-    NSString *filePath = [[self documentsPath] stringByAppendingPathComponent:name];
-    filePath = [filePath stringByAppendingPathExtension:@"jpeg"];
-    [UIImageJPEGRepresentation(self, quality) writeToFile:filePath atomically:useAuxiliaryFile];
-    return filePath;
+    NSURL *absoluteURL = [[[self documentsURL] URLByAppendingPathComponent:pathComponent] URLByAppendingPathExtension:extension];
+    if ([extension isEqualToString:kExtensionPNG]) {
+        [UIImagePNGRepresentation([self imageWithCorrectiveRotation]) writeToURL:absoluteURL atomically:YES];
+    } else {
+        [UIImageJPEGRepresentation([self imageWithCorrectiveRotation], 1.0) writeToURL:absoluteURL atomically:YES];
+    }
+    return absoluteURL;
 }
 
 @end
