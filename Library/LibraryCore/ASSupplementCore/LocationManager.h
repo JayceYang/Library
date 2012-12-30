@@ -12,7 +12,7 @@
 
 @interface LocationManager : NSObject
 
-// A Boolean value indicating whether the LocationManager return the corrective location. Default is NO.
+// A Boolean value indicating whether the LocationManager return the corrective location. Default is YES.
 @property (nonatomic) BOOL corrective;
 
 // A Boolean value indicating whether the LocationManager will stopUpdatingLocation when get the first location successfully. Default is YES.

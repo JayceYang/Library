@@ -10,7 +10,10 @@
 
 @interface CLGeocoder (ASCategory)
 
-+ (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(void (^)(NSString *address, NSError *error))completionHandler;
-+ (void)reverseGeocodeCoordinate:(CLLocationCoordinate2D)coordinate completionHandler:(void (^)(NSString *address, NSError *error))completionHandler;
++ (void)reverseGeocodeLocation:(CLLocation *)location addressCompletionHandler:(void (^)(NSString *address, NSError *error))completionHandler;
++ (void)reverseGeocodeCoordinate:(CLLocationCoordinate2D)coordinate addressCompletionHandler:(void (^)(NSString *address, NSError *error))completionHandler;
+
++ (void)reverseGeocodeLocation:(CLLocation *)location areaCompletionHandler:(void (^)(NSString *area, NSError *error))completionHandler;
++ (void)reverseGeocodeCoordinate:(CLLocationCoordinate2D)coordinate areaCompletionHandler:(void (^)(NSString *area, NSError *error))completionHandler;
 
 @end

@@ -13,7 +13,7 @@
 
 @implementation CLGeocoder (ASCategory)
 
-+ (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(void (^)(NSString *address, NSError *error))completionHandler
++ (void)reverseGeocodeLocation:(CLLocation *)location addressCompletionHandler:(void (^)(NSString *address, NSError *error))completionHandler
 {
     CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -25,13 +25,32 @@
         } else {
             address = [placemark stringValueFromValue:formattedAddressLines];
         }
-        completionHandler(address, nil);
+        completionHandler(address, error);
     }];
 }
 
-+ (void)reverseGeocodeCoordinate:(CLLocationCoordinate2D)coordinate completionHandler:(void (^)(NSString *address, NSError *error))completionHandler
++ (void)reverseGeocodeCoordinate:(CLLocationCoordinate2D)coordinate addressCompletionHandler:(void (^)(NSString *address, NSError *error))completionHandler
 {
-    [self reverseGeocodeLocation:[[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude] autorelease] completionHandler:completionHandler];
+    [self reverseGeocodeLocation:[[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude] autorelease] addressCompletionHandler:completionHandler];
+}
+
++ (void)reverseGeocodeLocation:(CLLocation *)location areaCompletionHandler:(void (^)(NSString *area, NSError *error))completionHandler
+{
+    CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSString *area = nil;
+        CLPlacemark *placemark = [placemarks firstObject];
+        if (placemark) {
+            area = [NSString stringWithFormat:@"%@ %@",placemark.administrativeArea,placemark.locality];
+        }
+//        ASLog(@"%@",area);
+        completionHandler(area, error);
+    }];
+}
+
++ (void)reverseGeocodeCoordinate:(CLLocationCoordinate2D)coordinate areaCompletionHandler:(void (^)(NSString *area, NSError *error))completionHandler
+{
+    [self reverseGeocodeLocation:[[[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude] autorelease] areaCompletionHandler:completionHandler];
 }
 
 @end
