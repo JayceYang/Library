@@ -79,8 +79,23 @@
     
     ASLog(@"%@",[[UIDevice currentDevice] detailModel]);
     
-    [[UIImage imageNamed:@"Cloud.png"] writeToFileNamed:@"fdsfs"];
-    [[UIImage imageNamed:@"Cloud.png"] writeToURLWithLastPathComponent:@"fd"];
+    [[LocationManager sharedManager] startUpdatingLocationWithSuccessHandler:^(CLLocation *location) {
+        [CLGeocoder reverseGeocodeLocation:location addressCompletionHandler:^(NSString *address, NSError *error) {
+            ASLog(@"address:%@",address);
+        }];
+        [CLGeocoder reverseGeocodeLocation:location countryCompletionHandler:^(NSString *country, NSError *error) {
+            ASLog(@"country:%@",country);
+        }];
+        [CLGeocoder reverseGeocodeLocation:location administrativeAreaCompletionHandler:^(NSString *administrativeArea, NSError *error) {
+            ASLog(@"administrativeArea:%@",administrativeArea);
+        }];
+        [CLGeocoder reverseGeocodeLocation:location localityCompletionHandler:^(NSString *locality, NSError *error) {
+            ASLog(@"locality:%@",locality);
+        }];
+        [CLGeocoder reverseGeocodeLocation:location areaCompletionHandler:^(NSString *area, NSError *error) {
+            ASLog(@"area:%@",area);
+        }];
+    }];
 }
 
 - (void)didReceiveMemoryWarning

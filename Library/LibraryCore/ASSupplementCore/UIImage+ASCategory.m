@@ -11,10 +11,6 @@
 
 NSString * const kExtensionPNG           = @"png";
 NSString * const kExtensionJPEG          = @"jpeg";
-//typedef enum {
-//    ImageFileFormatPNG,
-//    ImageFileFormatJPEG
-//} ImageFileFormat;
 
 @implementation UIImage (ASCategory)
 
