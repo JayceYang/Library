@@ -29,6 +29,7 @@
 #import "UIDevice+ASCategory.h"
 #import "CLGeocoder+ASCategory.h"
 #import "UIColor+ASCategory.h"
+#import "CLLocation+ASCategory.h"
 #import "ASGeometry.h"
 #import "LoadingView.h"
 #import "LocationManager.h"

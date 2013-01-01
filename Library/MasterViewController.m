@@ -80,6 +80,7 @@
     ASLog(@"%@",[[UIDevice currentDevice] detailModel]);
     
     [[LocationManager sharedManager] startUpdatingLocationWithSuccessHandler:^(CLLocation *location) {
+        ASLog(@"%@\t%@",[location latitude],[location longitude]);
         [CLGeocoder reverseGeocodeLocation:location addressCompletionHandler:^(NSString *address, NSError *error) {
             ASLog(@"address:%@",address);
         }];

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		280359CA1685B2A200BBE177 /* UIDevice+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 280359C91685B2A200BBE177 /* UIDevice+ASCategory.m */; };
+		280DF2FC16928ECD00CA08DF /* CLLocation+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 280DF2FB16928ECC00CA08DF /* CLLocation+ASCategory.m */; };
 		281E0877167192FB00065AE6 /* ASGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E0876167192FB00065AE6 /* ASGeometry.m */; };
 		281E08811671B81B00065AE6 /* NSDate+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E08801671B81B00065AE6 /* NSDate+ASCategory.m */; };
 		281E089A1671FC0B00065AE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 281E08991671FC0B00065AE6 /* README.md */; };
@@ -57,6 +58,8 @@
 /* Begin PBXFileReference section */
 		280359C81685B2A200BBE177 /* UIDevice+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+ASCategory.h"; sourceTree = "<group>"; };
 		280359C91685B2A200BBE177 /* UIDevice+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ASCategory.m"; sourceTree = "<group>"; };
+		280DF2FA16928ECC00CA08DF /* CLLocation+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+ASCategory.h"; sourceTree = "<group>"; };
+		280DF2FB16928ECC00CA08DF /* CLLocation+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+ASCategory.m"; sourceTree = "<group>"; };
 		281E0875167192FB00065AE6 /* ASGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeometry.h; sourceTree = "<group>"; };
 		281E0876167192FB00065AE6 /* ASGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeometry.m; sourceTree = "<group>"; };
 		281E087F1671B81B00065AE6 /* NSDate+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ASCategory.h"; sourceTree = "<group>"; };
@@ -287,6 +290,8 @@
 				284D202C1678873F00953E11 /* LoadingView.m */,
 				28545D14168D2BE300F0165D /* LocationManager.h */,
 				28545D15168D2BE300F0165D /* LocationManager.m */,
+				280DF2FA16928ECC00CA08DF /* CLLocation+ASCategory.h */,
+				280DF2FB16928ECC00CA08DF /* CLLocation+ASCategory.m */,
 			);
 			path = ASSupplementCore;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				2821B075168B2F3700EB76F6 /* NSDate+Helper.m in Sources */,
 				2876F3FD168C254100DD596A /* UIColor+ASCategory.m in Sources */,
 				28545D16168D2BE300F0165D /* LocationManager.m in Sources */,
+				280DF2FC16928ECD00CA08DF /* CLLocation+ASCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
