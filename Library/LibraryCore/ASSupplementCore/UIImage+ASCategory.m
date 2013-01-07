@@ -14,6 +14,13 @@ NSString * const kExtensionJPEG          = @"jpeg";
 
 @implementation UIImage (ASCategory)
 
++ (UIImage *)imageWithContentsOfURL:(NSURL *)URL
+{
+    NSData *data = [NSData dataWithContentsOfURL:URL];
+    UIImage *image = [UIImage imageWithData:data];
+    return image;
+}
+
 - (CGSize)sizeToFitSize:(CGSize)size
 {
     if (!self || (NSInteger)fabsf(self.size.width) == 0 || (NSInteger)fabsf(self.size.height) == 0 || (NSInteger)fabsf(size.width) == 0 || (NSInteger)fabsf(size.height) == 0) {
@@ -181,6 +188,14 @@ NSString * const kExtensionJPEG          = @"jpeg";
     return filePath;
 }
 
+- (NSString *)writeToFileNamed:(NSString *)name compressionQuality:(CGFloat)quality
+{
+    NSString *filePath = [[self documentsPath] stringByAppendingPathComponent:name];
+    filePath = [filePath stringByAppendingPathExtension:kExtensionJPEG];
+    [UIImageJPEGRepresentation([self imageWithCorrectiveRotation], quality) writeToFile:filePath atomically:YES];
+    return filePath;
+}
+
 - (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent
 {
     return [self writeToURLWithLastPathComponent:pathComponent extension:kExtensionPNG];
@@ -192,8 +207,15 @@ NSString * const kExtensionJPEG          = @"jpeg";
     if ([extension isEqualToString:kExtensionPNG]) {
         [UIImagePNGRepresentation([self imageWithCorrectiveRotation]) writeToURL:absoluteURL atomically:YES];
     } else {
-        [UIImageJPEGRepresentation([self imageWithCorrectiveRotation], 1.0) writeToURL:absoluteURL atomically:YES];
+        [UIImageJPEGRepresentation([self imageWithCorrectiveRotation], .8) writeToURL:absoluteURL atomically:YES];
     }
+    return absoluteURL;
+}
+
+- (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent compressionQuality:(CGFloat)quality
+{
+    NSURL *absoluteURL = [[[self documentsURL] URLByAppendingPathComponent:pathComponent] URLByAppendingPathExtension:kExtensionJPEG];
+    [UIImageJPEGRepresentation([self imageWithCorrectiveRotation], quality) writeToURL:absoluteURL atomically:YES];
     return absoluteURL;
 }
 

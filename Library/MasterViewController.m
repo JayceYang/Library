@@ -81,22 +81,16 @@
     
     [[LocationManager sharedManager] startUpdatingLocationWithSuccessHandler:^(CLLocation *location) {
         ASLog(@"%@\t%@",[location latitude],[location longitude]);
-        [CLGeocoder reverseGeocodeLocation:location addressCompletionHandler:^(NSString *address, NSError *error) {
-            ASLog(@"address:%@",address);
-        }];
-        [CLGeocoder reverseGeocodeLocation:location countryCompletionHandler:^(NSString *country, NSError *error) {
-            ASLog(@"country:%@",country);
-        }];
-        [CLGeocoder reverseGeocodeLocation:location administrativeAreaCompletionHandler:^(NSString *administrativeArea, NSError *error) {
-            ASLog(@"administrativeArea:%@",administrativeArea);
-        }];
-        [CLGeocoder reverseGeocodeLocation:location localityCompletionHandler:^(NSString *locality, NSError *error) {
-            ASLog(@"locality:%@",locality);
-        }];
-        [CLGeocoder reverseGeocodeLocation:location areaCompletionHandler:^(NSString *area, NSError *error) {
-            ASLog(@"area:%@",area);
+        [CLGeocoder reverseGeocodeLocation:location completionHandler:^(CLPlacemark *placemark, NSError *error) {
+            ASLog(@"%@",[placemark formattedAddressLines]);
         }];
     }];
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterLongStyle;
+    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
+    ASLog(@"%@",[dateFormatter stringFromDate:date]);
 }
 
 - (void)didReceiveMemoryWarning

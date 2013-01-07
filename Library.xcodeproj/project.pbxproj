@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		280359CA1685B2A200BBE177 /* UIDevice+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 280359C91685B2A200BBE177 /* UIDevice+ASCategory.m */; };
 		280DF2FC16928ECD00CA08DF /* CLLocation+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 280DF2FB16928ECC00CA08DF /* CLLocation+ASCategory.m */; };
+		280DF3041692931A00CA08DF /* CLPlacemark+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 280DF3031692931900CA08DF /* CLPlacemark+ASCategory.m */; };
 		281E0877167192FB00065AE6 /* ASGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E0876167192FB00065AE6 /* ASGeometry.m */; };
 		281E08811671B81B00065AE6 /* NSDate+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E08801671B81B00065AE6 /* NSDate+ASCategory.m */; };
 		281E089A1671FC0B00065AE6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 281E08991671FC0B00065AE6 /* README.md */; };
+		281E11CC169B241A000ED5C4 /* CalloutAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E11C9169B2419000ED5C4 /* CalloutAnnotation.m */; };
+		281E11CD169B241A000ED5C4 /* CalloutAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 281E11CB169B2419000ED5C4 /* CalloutAnnotationView.m */; };
 		2821B075168B2F3700EB76F6 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2821B074168B2F3600EB76F6 /* NSDate+Helper.m */; };
 		2843F86C167038E600135623 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F86B167038E600135623 /* UIKit.framework */; };
 		2843F86E167038E600135623 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F86D167038E600135623 /* Foundation.framework */; };
@@ -60,11 +63,17 @@
 		280359C91685B2A200BBE177 /* UIDevice+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+ASCategory.m"; sourceTree = "<group>"; };
 		280DF2FA16928ECC00CA08DF /* CLLocation+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+ASCategory.h"; sourceTree = "<group>"; };
 		280DF2FB16928ECC00CA08DF /* CLLocation+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+ASCategory.m"; sourceTree = "<group>"; };
+		280DF3021692931800CA08DF /* CLPlacemark+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLPlacemark+ASCategory.h"; sourceTree = "<group>"; };
+		280DF3031692931900CA08DF /* CLPlacemark+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLPlacemark+ASCategory.m"; sourceTree = "<group>"; };
 		281E0875167192FB00065AE6 /* ASGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASGeometry.h; sourceTree = "<group>"; };
 		281E0876167192FB00065AE6 /* ASGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASGeometry.m; sourceTree = "<group>"; };
 		281E087F1671B81B00065AE6 /* NSDate+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+ASCategory.h"; sourceTree = "<group>"; };
 		281E08801671B81B00065AE6 /* NSDate+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ASCategory.m"; sourceTree = "<group>"; };
 		281E08991671FC0B00065AE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		281E11C8169B2418000ED5C4 /* CalloutAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotation.h; sourceTree = "<group>"; };
+		281E11C9169B2419000ED5C4 /* CalloutAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotation.m; sourceTree = "<group>"; };
+		281E11CA169B2419000ED5C4 /* CalloutAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalloutAnnotationView.h; sourceTree = "<group>"; };
+		281E11CB169B2419000ED5C4 /* CalloutAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalloutAnnotationView.m; sourceTree = "<group>"; };
 		2821B073168B2F3600EB76F6 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		2821B074168B2F3600EB76F6 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		2843F867167038E600135623 /* Library.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Library.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +301,12 @@
 				28545D15168D2BE300F0165D /* LocationManager.m */,
 				280DF2FA16928ECC00CA08DF /* CLLocation+ASCategory.h */,
 				280DF2FB16928ECC00CA08DF /* CLLocation+ASCategory.m */,
+				280DF3021692931800CA08DF /* CLPlacemark+ASCategory.h */,
+				280DF3031692931900CA08DF /* CLPlacemark+ASCategory.m */,
+				281E11C8169B2418000ED5C4 /* CalloutAnnotation.h */,
+				281E11C9169B2419000ED5C4 /* CalloutAnnotation.m */,
+				281E11CA169B2419000ED5C4 /* CalloutAnnotationView.h */,
+				281E11CB169B2419000ED5C4 /* CalloutAnnotationView.m */,
 			);
 			path = ASSupplementCore;
 			sourceTree = "<group>";
@@ -398,6 +413,9 @@
 				2876F3FD168C254100DD596A /* UIColor+ASCategory.m in Sources */,
 				28545D16168D2BE300F0165D /* LocationManager.m in Sources */,
 				280DF2FC16928ECD00CA08DF /* CLLocation+ASCategory.m in Sources */,
+				280DF3041692931A00CA08DF /* CLPlacemark+ASCategory.m in Sources */,
+				281E11CC169B241A000ED5C4 /* CalloutAnnotation.m in Sources */,
+				281E11CD169B241A000ED5C4 /* CalloutAnnotationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

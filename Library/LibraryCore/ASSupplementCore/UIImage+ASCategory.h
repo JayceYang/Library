@@ -10,6 +10,8 @@
 
 @interface UIImage (ASCategory)
 
++ (UIImage *)imageWithContentsOfURL:(NSURL *)URL;
+
 - (CGSize)sizeToFitSize:(CGSize)size;
 - (UIImage *)imageToFitSize:(CGSize)size;
 - (UIImage *)blackAndWhiteImage;
@@ -17,9 +19,11 @@
 
 - (NSString *)writeToFileNamed:(NSString *)name;
 - (NSString *)writeToFileNamed:(NSString *)name extension:(NSString *)extension;
+- (NSString *)writeToFileNamed:(NSString *)name compressionQuality:(CGFloat)quality;
 
 - (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent;
 - (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent extension:(NSString *)extension;
+- (NSURL *)writeToURLWithLastPathComponent:(NSString *)pathComponent compressionQuality:(CGFloat)quality;
 
 @end
 
