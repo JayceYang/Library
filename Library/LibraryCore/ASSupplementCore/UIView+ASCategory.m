@@ -80,10 +80,24 @@
                         image:(UIImage *)image
              imageIndentation:(CGFloat)indentation
 {
+    return [self buttonWithFrame:frame target:target action:action title:title image:image imageIndentation:indentation navigated:NO];
+}
+
+- (UIButton *)buttonWithFrame:(CGRect)frame
+                       target:(id)target
+                       action:(SEL)action
+                        title:(NSString *)title
+                        image:(UIImage *)image
+             imageIndentation:(CGFloat)indentation
+                    navigated:(BOOL)navigated
+{
+    CGFloat navigationButtonMargin = 6;
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    button.backgroundColor = [UIColor purpleColor];
     [button setFrame:frame];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     [[button titleLabel] setFont:[UIFont systemFontOfSize:kSystemFontSize]];
+    //    [[button titleLabel] setBackgroundColor:[UIColor orangeColor]];
     CGFloat width = image.size.width;
     CGFloat height = image.size.height;
     CGFloat top = (frame.size.height - height) * .5;
@@ -91,8 +105,18 @@
     CGFloat bottom = top;
     CGFloat right = frame.size.width - left - width;
     [button setImageEdgeInsets:UIEdgeInsetsMake(top, left, bottom, right)];
-    [button setTitleEdgeInsets:UIEdgeInsetsMake(0, left, 0, 0)];
+    BOOL putTitleLeft = left > frame.size.width * .5 ? YES : NO;
+    if (navigated) {
+        CGFloat titleLeft = putTitleLeft ? frame.size.width - left - navigationButtonMargin : left + navigationButtonMargin;
+        CGFloat titleRight = putTitleLeft ? frame.size.width - left : left;
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, titleLeft, 0, titleRight)];
+    } else {
+        CGFloat titleIndentation = putTitleLeft ? frame.size.width - left : left;
+        [button setTitleEdgeInsets:UIEdgeInsetsMake(0, titleIndentation, 0, putTitleLeft ? titleIndentation + width : titleIndentation - width)];
+    }
+    
     [button setImage:image forState:UIControlStateNormal];
+    [button setTitle:title forState:UIControlStateNormal];
     return button;
 }
 

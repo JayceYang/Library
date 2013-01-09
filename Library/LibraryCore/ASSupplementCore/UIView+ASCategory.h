@@ -43,6 +43,14 @@
                         image:(UIImage *)image
              imageIndentation:(CGFloat)indentation;
 
+- (UIButton *)buttonWithFrame:(CGRect)frame
+                       target:(id)target
+                       action:(SEL)action
+                        title:(NSString *)title
+                        image:(UIImage *)image
+             imageIndentation:(CGFloat)indentation
+                    navigated:(BOOL)navigated;
+
 /* if the frame is CGRectZero, the button will use the image's size as its size and CGPointZero as its origin */
 - (UIButton *)buttonWithFrame:(CGRect)frame 
                        target:(id)target 
