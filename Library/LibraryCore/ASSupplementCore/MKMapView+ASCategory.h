@@ -10,12 +10,14 @@
 
 @interface MKMapView (ASCategory)
 
+- (MKCoordinateRegion)limitedRegion;
 - (void)zoomToFitAnnotations;
 - (void)zoomToFitAnnotationsWithSideSpacingFactor:(CGFloat)factor;
 - (void)removeAllAnnotations;
 - (void)reloadAnnotations;
 - (void)reloadAnnotationViewWithAnnotation:(id <MKAnnotation>)annotation;
-- (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated outOfBoundsBlock:(void (^)(void))block;
+- (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler;
+- (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler;
 - (void)addOverlay:(id <MKOverlay>)overlay ignoreDuplicate:(BOOL)ignore;
 
 @end

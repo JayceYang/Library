@@ -31,6 +31,7 @@ BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int
 
 - (void)standardUserDefaultsSetObject:(id)value forKey:(NSString *)key;
 - (NSString *)bundleVersion;
+- (NSString *)bundleDisplayName;
 
 - (NSString *)cachePath;
 - (NSString *)documentsPath;

@@ -73,6 +73,32 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
 }
 
+/*
+ Recommended Keys for iOS Apps
+ It is recommended that an iOS app include the following keys in its information property list file. Most are set by Xcode automatically when you create your project.
+ 
+ CFBundleDevelopmentRegion
+ CFBundleDisplayName
+ CFBundleExecutable
+ CFBundleIconFiles
+ CFBundleIdentifier
+ CFBundleInfoDictionaryVersion
+ CFBundlePackageType
+ CFBundleVersion
+ LSRequiresIPhoneOS
+ UIMainStoryboardFile
+ In addition to these keys, there are several that are commonly included:
+ 
+ UIRequiredDeviceCapabilities (required)
+ UIStatusBarStyle
+ UIInterfaceOrientation
+ UIRequiresPersistentWiFi
+*/
+- (NSString *)bundleDisplayName
+{
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+}
+
 - (NSString *)cachePath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);

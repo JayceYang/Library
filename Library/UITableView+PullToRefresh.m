@@ -8,6 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
+
 #import "UITableView+PullToRefresh.h"
 
 static CGFloat const PullToRefreshViewHeight = 60;
@@ -31,7 +32,6 @@ static CGFloat const PullToRefreshViewHeight = 60;
 
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSMutableArray *subtitles;
-@property (nonatomic, strong) NSMutableArray *viewForState;
 
 @property (nonatomic, assign) UITableView *tableView;
 
@@ -62,7 +62,6 @@ static CGFloat const PullToRefreshViewHeight = 60;
 @synthesize activityIndicatorView = _activityIndicatorView;
 
 @synthesize titleLabel = _titleLabel;
-@synthesize dateLabel = _dateLabel;
 
 
 - (id)initWithFrame:(CGRect)frame
@@ -83,7 +82,6 @@ static CGFloat const PullToRefreshViewHeight = 60;
                        nil];
         
         self.subtitles = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", nil];
-        self.viewForState = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", nil];
     }
     
     return self;
@@ -124,47 +122,28 @@ static CGFloat const PullToRefreshViewHeight = 60;
     
     self.activityIndicatorView.center = self.arrow.center;
     
-    for (id otherView in self.viewForState) {
-        if ([otherView isKindOfClass:[UIView class]])
-            [otherView removeFromSuperview];
-    }
+    self.titleLabel.text = [self.titles objectAtIndex:self.state];
     
-    id customView = [self.viewForState objectAtIndex:self.state];
-    BOOL hasCustomView = [customView isKindOfClass:[UIView class]];
+//    NSString *subtitle = [self.subtitles objectAtIndex:self.state];
+//    if(subtitle.length > 0)
+//        self.subtitleLabel.text = subtitle;
     
-    self.titleLabel.hidden = hasCustomView;
-    self.subtitleLabel.hidden = hasCustomView;
-    self.arrow.hidden = hasCustomView;
-    
-    if (hasCustomView) {
-        [self addSubview:customView];
-        CGRect viewBounds = [customView bounds];
-        CGPoint origin = CGPointMake(round((self.bounds.size.width-viewBounds.size.width)/2), round((self.bounds.size.height-viewBounds.size.height)/2));
-        [customView setFrame:CGRectMake(origin.x, origin.y, viewBounds.size.width, viewBounds.size.height)];
-    } else {
-        self.titleLabel.text = [self.titles objectAtIndex:self.state];
-        
-        NSString *subtitle = [self.subtitles objectAtIndex:self.state];
-        if(subtitle.length > 0)
-            self.subtitleLabel.text = subtitle;
-        
-        switch (self.state) {
-            case PullToRefreshStateStopped:
-                self.arrow.alpha = 1;
-                [self.activityIndicatorView stopAnimating];
-                [self rotateArrow:0 hide:NO];
-                break;
-                
-            case PullToRefreshStateTriggered:
-                [self rotateArrow:M_PI hide:NO];
-                break;
-                
-            case PullToRefreshStateLoading:
-                self.arrow.layer.opacity = NO;      //Added by Jayce Yang
-                [self.activityIndicatorView startAnimating];
-                [self rotateArrow:0 hide:YES];
-                break;
-        }
+    switch (self.state) {
+        case PullToRefreshStateStopped:
+            self.arrow.alpha = 1;
+            [self.activityIndicatorView stopAnimating];
+            [self rotateArrow:0 hide:NO];
+            break;
+            
+        case PullToRefreshStateTriggered:
+            [self rotateArrow:M_PI hide:NO];
+            break;
+            
+        case PullToRefreshStateLoading:
+            self.arrow.layer.opacity = NO;      //Added by Jayce Yang
+            [self.activityIndicatorView startAnimating];
+            [self rotateArrow:0 hide:YES];
+            break;
     }
 }
 
@@ -267,11 +246,6 @@ static CGFloat const PullToRefreshViewHeight = 60;
     return _subtitleLabel;
 }
 
-- (UILabel *)dateLabel
-{
-    return self.showsDateLabel ? self.subtitleLabel : nil;
-}
-
 - (NSDateFormatter *)dateFormatter
 {
     if (!dateFormatter) {
@@ -306,47 +280,6 @@ static CGFloat const PullToRefreshViewHeight = 60;
 	[self.arrow setNeedsDisplay];
 }
 
-- (void)setTitle:(NSString *)title forState:(PullToRefreshState)state
-{
-    if (!title)
-        title = @"";
-    
-    if (state == PullToRefreshStateAll)
-        [self.titles replaceObjectsInRange:NSMakeRange(0, 3) withObjectsFromArray:@[title, title, title]];
-    else
-        [self.titles replaceObjectAtIndex:state withObject:title];
-    
-    [self setNeedsLayout];
-}
-
-- (void)setSubtitle:(NSString *)subtitle forState:(PullToRefreshState)state
-{
-    if (!subtitle)
-        subtitle = @"";
-    
-    if (state == PullToRefreshStateAll)
-        [self.subtitles replaceObjectsInRange:NSMakeRange(0, 3) withObjectsFromArray:@[subtitle, subtitle, subtitle]];
-    else
-        [self.subtitles replaceObjectAtIndex:state withObject:subtitle];
-    
-    [self setNeedsLayout];
-}
-
-- (void)setCustomView:(UIView *)view forState:(PullToRefreshState)state
-{
-    id viewPlaceholder = view;
-    
-    if (!viewPlaceholder)
-        viewPlaceholder = @"";
-    
-    if (state == PullToRefreshStateAll)
-        [self.viewForState replaceObjectsInRange:NSMakeRange(0, 3) withObjectsFromArray:@[viewPlaceholder, viewPlaceholder, viewPlaceholder]];
-    else
-        [self.viewForState replaceObjectAtIndex:state withObject:viewPlaceholder];
-    
-    [self setNeedsLayout];
-}
-
 - (void)setTextColor:(UIColor *)newTextColor
 {
     textColor = newTextColor;
@@ -362,21 +295,16 @@ static CGFloat const PullToRefreshViewHeight = 60;
 - (void)setLastUpdatedDate:(NSDate *)newLastUpdatedDate
 {
     self.showsDateLabel = YES;
-    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Last Updated: %@",), newLastUpdatedDate?[self.dateFormatter stringFromDate:newLastUpdatedDate]:NSLocalizedString(@"Never",)];
+    self.subtitleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Last Updated: %@",), newLastUpdatedDate?[self.dateFormatter stringFromDate:newLastUpdatedDate]:NSLocalizedString(@"Never",)];
 }
 
 - (void)setDateFormatter:(NSDateFormatter *)newDateFormatter
 {
 	dateFormatter = newDateFormatter;
-    self.dateLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Last Updated: %@",), self.lastUpdatedDate?[newDateFormatter stringFromDate:self.lastUpdatedDate]:NSLocalizedString(@"Never",)];
+    self.subtitleLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Last Updated: %@",), self.lastUpdatedDate?[newDateFormatter stringFromDate:self.lastUpdatedDate]:NSLocalizedString(@"Never",)];
 }
 
 #pragma mark -
-
-- (void)triggerRefresh
-{
-    [self.tableView triggerPullToRefresh];
-}
 
 - (void)startAnimating
 {
@@ -446,11 +374,11 @@ static char UITableViewPullToRefreshView;
 
 @dynamic pullToRefreshView, showsPullToRefresh;
 
-- (void)addPullToRefresh
+- (void)addPullToRefreshWithActionHandler:(void (^)(void))actionHandler
 {
     if (!self.pullToRefreshView) {
         PullToRefreshView *view = [[PullToRefreshView alloc] initWithFrame:CGRectMake(0, - PullToRefreshViewHeight, self.bounds.size.width, PullToRefreshViewHeight)];
-//        view.pullToRefreshActionHandler = actionHandler;
+        view.pullToRefreshActionHandler = actionHandler;
         view.tableView = self;
         [self addSubview:view];
         

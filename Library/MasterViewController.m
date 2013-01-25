@@ -50,7 +50,14 @@
     self.tableView.delegate = self;
     
     //    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    //    [self.tableView addPullToLoadMore];
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        int64_t delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self.tableView.pullToRefreshView stopAnimating];
+        });
+    }];
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
@@ -70,27 +77,7 @@
     self.tableView.tableHeaderView = tableHeaderView;
     [tableHeaderView release];
     
-    [self showLoadingView];
-    int64_t delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self hideLoadingView];
-    });
-    
     ASLog(@"%@",[[UIDevice currentDevice] detailModel]);
-    
-    [[LocationManager sharedManager] startUpdatingLocationWithSuccessHandler:^(CLLocation *location) {
-        ASLog(@"%@\t%@",[location latitude],[location longitude]);
-        [CLGeocoder reverseGeocodeLocation:location completionHandler:^(CLPlacemark *placemark, NSError *error) {
-            ASLog(@"%@",[placemark formattedAddressLines]);
-        }];
-    }];
-    
-    NSDate *date = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateStyle = NSDateFormatterLongStyle;
-    dateFormatter.timeStyle = NSDateFormatterMediumStyle;
-    ASLog(@"%@",[dateFormatter stringFromDate:date]);
 }
 
 - (void)didReceiveMemoryWarning

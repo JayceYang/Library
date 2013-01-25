@@ -8,10 +8,32 @@
 
 #import "MKMapView+ASCategory.h"
 #import "NSObject+ASCategory.h"
+#import "ASGeometry.h"
+
+static CLLocationDegrees const kMinimumLatitude = - 90;
+static CLLocationDegrees const kMaximumLatitude = 90;
+static CLLocationDegrees const kMinimumLongitude = - 180;
+static CLLocationDegrees const kMaximumLongitude = 180;
 
 @implementation MKMapView (ASCategory)
 
 #pragma mark - Public
+
+- (MKCoordinateRegion)limitedRegion
+{
+    // this call is broken on iOS 5, as is the region property, so don't use them
+    // return( [self convertRect:self.bounds toRegionFromView:self] );
+    
+    CLLocationCoordinate2D topLeft = [self convertPoint:CGPointZero toCoordinateFromView:self];
+    CLLocationCoordinate2D bottomRight = [self convertPoint:CGPointMake(self.bounds.size.width, self.bounds.size.height) toCoordinateFromView:self];
+    
+    MKCoordinateRegion region;
+    region.center.latitude = (topLeft.latitude + bottomRight.latitude)/2;
+    region.center.longitude = (topLeft.longitude + bottomRight.longitude)/2;
+    region.span.latitudeDelta = fabs( topLeft.latitude - bottomRight.latitude );
+    region.span.longitudeDelta = fabs( topLeft.longitude - bottomRight.longitude );
+    return region;
+}
 
 - (void)zoomToFitAnnotations
 {
@@ -25,12 +47,12 @@
     }
     
     CLLocationCoordinate2D topLeftCoord;
-    topLeftCoord.latitude = - 90;
-    topLeftCoord.longitude = 180;
+    topLeftCoord.latitude = kMinimumLatitude;
+    topLeftCoord.longitude = kMaximumLongitude;
     
     CLLocationCoordinate2D bottomRightCoord;
-    bottomRightCoord.latitude = 90;
-    bottomRightCoord.longitude = - 180;
+    bottomRightCoord.latitude = kMaximumLatitude;
+    bottomRightCoord.longitude = kMinimumLongitude;
     
     for (id<MKAnnotation> annotation in self.annotations) {
         topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
@@ -70,14 +92,35 @@
     }
 }
 
-- (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated outOfBoundsBlock:(void (^)(void))block
+- (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler
 {
-    if (fabs(region.center.latitude) > 90 || fabs(region.center.longitude) > 180 || fabs(region.span.latitudeDelta) > 180 || fabs(region.span.longitudeDelta) > 180) {
-        if (block) {
-            block();
+    if (fabs(coordinate.latitude) > kMaximumLatitude || fabs(coordinate.longitude) > kMaximumLongitude) {
+        ASLog(@"Invalid coordinate:%@",NSStringFromCLLocationCoordinate2D(coordinate));
+        if (handler) {
+            handler();
         }
     } else {
-        [self setRegion:region animated:animated];
+        [self setCenterCoordinate:coordinate animated:animated];
+    }
+}
+
+- (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler
+{
+    if (fabs(region.center.latitude) > kMaximumLatitude || fabs(region.center.longitude) > kMaximumLongitude) {
+        ASLog(@"Invalid coordinate:%@",NSStringFromCLLocationCoordinate2D(region.center));
+        if (handler) {
+            handler();
+        }
+    } else {
+        MKCoordinateRegion fitRegion = [self regionThatFits:region];
+        if (isnan(fitRegion.center.latitude)) {
+            // iOS 6 will result in nan.
+            fitRegion.center.latitude = region.center.latitude;
+            fitRegion.center.longitude = region.center.longitude;
+            fitRegion.span.latitudeDelta = 0;
+            fitRegion.span.longitudeDelta = 0;
+        }
+        [self setRegion:fitRegion animated:animated];
     }
 }
 

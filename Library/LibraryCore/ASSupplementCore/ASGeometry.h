@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 inline NSString *NSStringFromCLLocationCoordinate2D(CLLocationCoordinate2D coordinate);
+inline NSString *NSStringFromMKCoordinateSpan(MKCoordinateSpan span);
+inline NSString *NSStringFromMKCoordinateRegion(MKCoordinateRegion region);
 inline NSString *NSStringFromCGSize(CGSize size);
