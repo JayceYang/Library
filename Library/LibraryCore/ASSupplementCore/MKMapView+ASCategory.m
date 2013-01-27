@@ -142,4 +142,9 @@ static CLLocationDegrees const kMaximumLongitude = 180;
     }
 }
 
+- (void)removeAllOverlays
+{
+    [self removeOverlays:self.overlays];
+}
+
 @end

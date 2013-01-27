@@ -19,5 +19,6 @@
 - (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler;
 - (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler;
 - (void)addOverlay:(id <MKOverlay>)overlay ignoreDuplicate:(BOOL)ignore;
+- (void)removeAllOverlays;
 
 @end
