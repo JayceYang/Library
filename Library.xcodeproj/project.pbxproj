@@ -53,6 +53,7 @@
 		286796E2168838DA00EDF957 /* CLGeocoder+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 286796E1168838DA00EDF957 /* CLGeocoder+ASCategory.m */; };
 		286796E516883B3D00EDF957 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286796E416883B3D00EDF957 /* CoreLocation.framework */; };
 		2876F3FD168C254100DD596A /* UIColor+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876F3FC168C254100DD596A /* UIColor+ASCategory.m */; };
+		287B23A716B77D8200EC6702 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287B23A616B77D8200EC6702 /* CoreTelephony.framework */; };
 		28BE789516759021006C61FC /* UITableView+PullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789016759020006C61FC /* UITableView+PullToRefresh.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		28BE789616759021006C61FC /* UITableView+PullToLoadMore.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789216759020006C61FC /* UITableView+PullToLoadMore.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		28BE789716759021006C61FC /* TableBasedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BE789416759021006C61FC /* TableBasedViewController.m */; };
@@ -143,6 +144,7 @@
 		286796E416883B3D00EDF957 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2876F3FB168C254100DD596A /* UIColor+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ASCategory.h"; sourceTree = "<group>"; };
 		2876F3FC168C254100DD596A /* UIColor+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASCategory.m"; sourceTree = "<group>"; };
+		287B23A616B77D8200EC6702 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		28BE788F16759020006C61FC /* UITableView+PullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PullToRefresh.h"; sourceTree = "<group>"; };
 		28BE789016759020006C61FC /* UITableView+PullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+PullToRefresh.m"; sourceTree = "<group>"; };
 		28BE789116759020006C61FC /* UITableView+PullToLoadMore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+PullToLoadMore.h"; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				2843F91E167039CD00135623 /* QuartzCore.framework in Frameworks */,
 				2843F920167039D600135623 /* MapKit.framework in Frameworks */,
 				286796E516883B3D00EDF957 /* CoreLocation.framework in Frameworks */,
+				287B23A716B77D8200EC6702 /* CoreTelephony.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +192,7 @@
 		2843F86A167038E600135623 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				287B23A616B77D8200EC6702 /* CoreTelephony.framework */,
 				286796E416883B3D00EDF957 /* CoreLocation.framework */,
 				2843F91F167039D600135623 /* MapKit.framework */,
 				2843F91D167039CD00135623 /* QuartzCore.framework */,

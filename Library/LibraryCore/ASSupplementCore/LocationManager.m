@@ -82,7 +82,7 @@
         _mapView.showsUserLocation = NO;
         [_mapView release];
     } else {
-        _locationManager.delegate = self;
+        _locationManager.delegate = nil;
         [_locationManager stopUpdatingLocation];
         [_locationManager release];
     }
