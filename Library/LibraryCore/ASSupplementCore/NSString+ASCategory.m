@@ -21,6 +21,37 @@
     return [formatter dateFromString:self];
 }
 
+- (BOOL)matchWithPattern:(NSString *)pattern
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    return [predicate evaluateWithObject:self];
+}
+
+- (BOOL)isValidNumber
+{
+    NSString *pattern = @"^[0-9]*$";
+    return [self matchWithPattern:pattern];
+}
+
+- (BOOL)isValidEmail
+{
+    NSString *pattern = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    return [self matchWithPattern:pattern];
+}
+
+- (BOOL)isValidMobile
+{
+    //手机号以13， 15，18开头，八个 \d 数字字符
+    NSString *pattern = @"^((13[0-9])|(15[^4,\\D])|(18[0,0-9]))\\d{8}$";
+    return [self matchWithPattern:pattern];
+}
+
+- (BOOL)isValidaCarPlate
+{
+    NSString *pattern = @"^[A-Za-z]{1}[A-Za-z_0-9]{5}$";
+    return [self matchWithPattern:pattern];
+}
+
 - (NSString *)gender
 {
     NSString *result = @"M";

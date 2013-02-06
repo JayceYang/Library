@@ -13,9 +13,6 @@
 #import "NSDate+Helper.h"
 #import "NSDate+ASCategory.h"
 
-#import "UITableView+PullToRefresh.h"
-#import "UITableView+PullToLoadMore.h"
-
 @interface MasterViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *objects;
@@ -48,15 +45,6 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
-    //    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self.tableView addPullToRefreshWithActionHandler:^{
-        int64_t delayInSeconds = 2.0;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self.tableView.pullToRefreshView stopAnimating];
-        });
-    }];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     //    self.navigationItem.leftBarButtonItem = self.editButtonItem;
