@@ -25,7 +25,7 @@ static char UIButtonMaskLabel;
 - (UILabel *)maskLabel
 {
     UILabel *label = objc_getAssociatedObject(self, &UIButtonMaskLabel);
-    if(!label) {
+    if (!label) {
         label = [[UILabel alloc] initWithFrame:self.bounds];
         label.textAlignment = UITextAlignmentCenter;
         label.backgroundColor = [UIColor clearColor];

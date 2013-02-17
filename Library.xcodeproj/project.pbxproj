@@ -53,6 +53,7 @@
 		286796E2168838DA00EDF957 /* CLGeocoder+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 286796E1168838DA00EDF957 /* CLGeocoder+ASCategory.m */; };
 		286796E516883B3D00EDF957 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286796E416883B3D00EDF957 /* CoreLocation.framework */; };
 		2876F3FD168C254100DD596A /* UIColor+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876F3FC168C254100DD596A /* UIColor+ASCategory.m */; };
+		289F8CAA16D11E7F004EEA2F /* NSLocale+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 289F8CA916D11E7F004EEA2F /* NSLocale+ASCategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,8 @@
 		286796E416883B3D00EDF957 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2876F3FB168C254100DD596A /* UIColor+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ASCategory.h"; sourceTree = "<group>"; };
 		2876F3FC168C254100DD596A /* UIColor+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASCategory.m"; sourceTree = "<group>"; };
+		289F8CA816D11E7F004EEA2F /* NSLocale+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+ASCategory.h"; sourceTree = "<group>"; };
+		289F8CA916D11E7F004EEA2F /* NSLocale+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+ASCategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,8 @@
 				2843F9B9167044FE00135623 /* NSArray+ASCategory.m */,
 				2843F9BA167044FE00135623 /* NSDictionary+ASCategory.h */,
 				2843F9BB167044FE00135623 /* NSDictionary+ASCategory.m */,
+				289F8CA816D11E7F004EEA2F /* NSLocale+ASCategory.h */,
+				289F8CA916D11E7F004EEA2F /* NSLocale+ASCategory.m */,
 				2843F9BC167044FE00135623 /* NSMutableArray+ASCategory.h */,
 				2843F9BD167044FE00135623 /* NSMutableArray+ASCategory.m */,
 				2843F9BE167044FE00135623 /* NSMutableString+ASCategory.h */,
@@ -398,6 +403,7 @@
 				280DF3041692931A00CA08DF /* CLPlacemark+ASCategory.m in Sources */,
 				281E11CC169B241A000ED5C4 /* CalloutAnnotation.m in Sources */,
 				281E11CD169B241A000ED5C4 /* CalloutAnnotationView.m in Sources */,
+				289F8CAA16D11E7F004EEA2F /* NSLocale+ASCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

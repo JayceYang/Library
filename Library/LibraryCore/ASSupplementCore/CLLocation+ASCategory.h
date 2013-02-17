@@ -10,6 +10,8 @@
 
 @interface CLLocation (ASCategory)
 
+@property (copy, nonatomic) CLPlacemark *placemark;
+
 - (NSString *)latitude;
 - (NSString *)longitude;
 
