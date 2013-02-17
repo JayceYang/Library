@@ -228,6 +228,14 @@
 	return displayString;
 }
 
+- (NSString *)stringWithDateStyle:(NSDateFormatterStyle)style
+{
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    dateFormatter.dateStyle = style;
+    dateFormatter.locale = [NSLocale currentLocale];
+    return [dateFormatter stringFromDate:self];
+}
+
 - (NSInteger)thisYear
 {
     NSCalendar *calendar = [NSCalendar currentCalendar];

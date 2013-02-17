@@ -41,6 +41,7 @@
 - (NSString *)stringValueWithDateFormat:(NSString *)format;
 - (NSString *)timestamp;
 - (NSString *)timestampSimple;
+- (NSString *)stringWithDateStyle:(NSDateFormatterStyle)style;
 - (NSInteger)thisYear;
 - (NSInteger)thisMonth;
 - (NSInteger)thisDay;
