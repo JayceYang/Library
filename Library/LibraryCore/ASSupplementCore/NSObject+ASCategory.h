@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 #ifndef ASLog
 #if DEBUG
@@ -21,6 +22,7 @@
 
 BOOL doubleEqualToDouble(double double1, double double2);
 BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int accuracyExponent);
+BOOL CLLocationCoordinate2DEqualToCoordinate(CLLocationCoordinate2D coordinate1, CLLocationCoordinate2D coordinate2);
 
 @interface NSObject (ASCategory)
 

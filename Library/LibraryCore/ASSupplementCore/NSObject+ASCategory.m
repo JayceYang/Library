@@ -21,6 +21,11 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
     return fabs(double1 - double2) <= pow(10, - accuracyExponent);
 }
 
+inline BOOL CLLocationCoordinate2DEqualToCoordinate(CLLocationCoordinate2D coordinate1, CLLocationCoordinate2D coordinate2)
+{
+    return coordinate1.latitude == coordinate2.latitude && coordinate1.longitude == coordinate2.longitude;
+}
+
 @implementation NSObject (ASCategory)
 
 - (NSInteger)integerValueFromValue:(id)value

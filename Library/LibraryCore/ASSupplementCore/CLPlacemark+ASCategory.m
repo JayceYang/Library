@@ -12,7 +12,7 @@
 
 @implementation CLPlacemark (ASCategory)
 
-- (NSString *)formattedAddressLines
+- (NSString *)formattedAddressLine
 {
     NSString *addressLines = nil;
     id lines = [self.addressDictionary objectForKey:@"FormattedAddressLines"];

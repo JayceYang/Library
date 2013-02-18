@@ -10,6 +10,6 @@
 
 @interface CLPlacemark (ASCategory)
 
-- (NSString *)formattedAddressLines;
+- (NSString *)formattedAddressLine;
 
 @end
