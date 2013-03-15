@@ -10,9 +10,11 @@
 
 @interface MKMapView (ASCategory)
 
+- (MKZoomScale)zoomScale;
+//- (CGFloat)roadWidth;
 - (MKCoordinateRegion)limitedRegion;
-- (void)zoomToFitAnnotations;
-- (void)zoomToFitAnnotationsWithSideSpacingFactor:(CGFloat)factor;
+- (void)zoomToFitAnnotationsAnimated:(BOOL)animated;
+- (void)zoomToFitAnnotationsAnimated:(BOOL)animated edgePadding:(UIEdgeInsets)insets;
 - (void)removeAllAnnotations;
 - (void)reloadAnnotations;
 - (void)reloadAnnotationViewWithAnnotation:(id <MKAnnotation>)annotation;

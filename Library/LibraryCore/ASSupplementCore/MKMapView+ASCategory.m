@@ -19,6 +19,16 @@ static CLLocationDegrees const kMaximumLongitude = 180;
 
 #pragma mark - Public
 
+- (MKZoomScale)zoomScale
+{
+    return self.visibleMapRect.size.width / self.bounds.size.width;
+}
+
+- (CGFloat)roadWidth
+{
+    return MKRoadWidthAtZoomScale([self zoomScale]);
+}
+
 - (MKCoordinateRegion)limitedRegion
 {
     // this call is broken on iOS 5, as is the region property, so don't use them
@@ -30,45 +40,53 @@ static CLLocationDegrees const kMaximumLongitude = 180;
     MKCoordinateRegion region;
     region.center.latitude = (topLeft.latitude + bottomRight.latitude)/2;
     region.center.longitude = (topLeft.longitude + bottomRight.longitude)/2;
-    region.span.latitudeDelta = fabs( topLeft.latitude - bottomRight.latitude );
-    region.span.longitudeDelta = fabs( topLeft.longitude - bottomRight.longitude );
+    region.span.latitudeDelta = fabs(topLeft.latitude - bottomRight.latitude );
+    region.span.longitudeDelta = fabs(topLeft.longitude - bottomRight.longitude );
     return region;
 }
-
-- (void)zoomToFitAnnotations
+- (void)zoomToFitAnnotationsAnimated:(BOOL)animated
 {
-    [self zoomToFitAnnotationsWithSideSpacingFactor:1.0];
+    [self zoomToFitAnnotationsAnimated:animated edgePadding:UIEdgeInsetsZero];
 }
 
-- (void)zoomToFitAnnotationsWithSideSpacingFactor:(CGFloat)factor
+- (void)zoomToFitAnnotationsAnimated:(BOOL)animated edgePadding:(UIEdgeInsets)insets
 {
     if ([self.annotations count] == 0) {
         return;
     }
     
-    CLLocationCoordinate2D topLeftCoord;
-    topLeftCoord.latitude = kMinimumLatitude;
-    topLeftCoord.longitude = kMaximumLongitude;
-    
-    CLLocationCoordinate2D bottomRightCoord;
-    bottomRightCoord.latitude = kMaximumLatitude;
-    bottomRightCoord.longitude = kMinimumLongitude;
-    
-    for (id<MKAnnotation> annotation in self.annotations) {
-        topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
-        topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
-        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
-        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
+    MKMapRect mapRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in self.annotations) {
+        MKMapPoint mapPoint = MKMapPointForCoordinate([annotation coordinate]);
+        mapRect = MKMapRectUnion(mapRect, MKMapRectMake(mapPoint.x, mapPoint.y, 0, 0));
     }
     
-    MKCoordinateRegion region;
-    region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
-    region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
-    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * factor;
-    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * factor;
+    mapRect = [self mapRectThatFits:mapRect edgePadding:insets];
+    [self setVisibleMapRect:mapRect edgePadding:insets animated:YES];
     
-    region = [self regionThatFits:region];
-    [self setRegion:region animated:YES];
+//    CLLocationCoordinate2D topLeftCoord;
+//    topLeftCoord.latitude = kMinimumLatitude;
+//    topLeftCoord.longitude = kMaximumLongitude;
+//    
+//    CLLocationCoordinate2D bottomRightCoord;
+//    bottomRightCoord.latitude = kMaximumLatitude;
+//    bottomRightCoord.longitude = kMinimumLongitude;
+//    
+//    for (id<MKAnnotation> annotation in self.annotations) {
+//        topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
+//        topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
+//        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
+//        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
+//    }
+//    
+//    MKCoordinateRegion region;
+//    region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+//    region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+//    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * factor;
+//    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * factor;
+//    
+//    region = [self regionThatFits:region];
+//    [self setRegion:region animated:YES];
 }
 
 - (void)removeAllAnnotations
@@ -94,7 +112,7 @@ static CLLocationDegrees const kMaximumLongitude = 180;
 
 - (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler
 {
-    if (fabs(coordinate.latitude) > kMaximumLatitude || fabs(coordinate.longitude) > kMaximumLongitude) {
+    if (CLLocationCoordinate2DIsValid(coordinate)) {
         ASLog(@"Invalid coordinate:%@",NSStringFromCLLocationCoordinate2D(coordinate));
         if (handler) {
             handler();
@@ -106,7 +124,7 @@ static CLLocationDegrees const kMaximumLongitude = 180;
 
 - (void)setRegion:(MKCoordinateRegion)region animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler
 {
-    if (fabs(region.center.latitude) > kMaximumLatitude || fabs(region.center.longitude) > kMaximumLongitude) {
+    if (CLLocationCoordinate2DIsValid(region.center)) {
         ASLog(@"Invalid coordinate:%@",NSStringFromCLLocationCoordinate2D(region.center));
         if (handler) {
             handler();
