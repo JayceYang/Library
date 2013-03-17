@@ -84,4 +84,10 @@
     return result;
 }
 
+- (CGFloat)heightWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+{
+    CGFloat result = [self sizeWithFont:font constrainedToSize:size].height;
+    return result;
+}
+
 @end

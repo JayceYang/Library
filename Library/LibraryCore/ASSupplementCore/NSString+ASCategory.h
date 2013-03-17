@@ -21,5 +21,6 @@
 - (NSString *)gender;    //if the string is a valid ID string, male results "M", female returns "F"
 - (NSDate *)birthday;    //if the string is a valid ID string, returns the date with format like "yyyyMMdd"
 - (CGFloat)heightWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width;
+- (CGFloat)heightWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
 
 @end
