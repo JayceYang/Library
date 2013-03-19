@@ -16,6 +16,7 @@
 - (void)zoomToFitAnnotationsAnimated:(BOOL)animated;
 - (void)zoomToFitAnnotationsAnimated:(BOOL)animated edgePadding:(UIEdgeInsets)insets;
 - (void)removeAllAnnotations;
+- (void)removeAllAnnotationsExceptUserLocation;
 - (void)reloadAnnotations;
 - (void)reloadAnnotationViewWithAnnotation:(id <MKAnnotation>)annotation;
 - (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated invalidCoordinateHandler:(void (^)(void))handler;

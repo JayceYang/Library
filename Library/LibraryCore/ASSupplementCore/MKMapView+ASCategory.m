@@ -94,6 +94,19 @@ static CLLocationDegrees const kMaximumLongitude = 180;
     [self removeAnnotations:self.annotations];
 }
 
+- (void)removeAllAnnotationsExceptUserLocation
+{
+    NSMutableArray *annotationsToRemove = [NSMutableArray array];
+    for (id <MKAnnotation> annotation in self.annotations) {
+        if (![annotation isKindOfClass:[MKUserLocation class]]) {
+            [annotationsToRemove addObject:annotation];
+        }
+    }
+    if ([annotationsToRemove count] > 0) {
+        [self removeAnnotations:annotationsToRemove];
+    }
+}
+
 - (void)reloadAnnotations
 {
     NSArray *annotations = [self.annotations copy];
