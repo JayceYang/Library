@@ -41,7 +41,11 @@
 
 - (id)theLastObject
 {
-    return [self objectAtTheIndex:self.count - 1];
+    if (self.count > 0) {
+        return [self objectAtTheIndex:self.count - 1];
+    } else {
+        return nil;
+    }
 }
 
 @end

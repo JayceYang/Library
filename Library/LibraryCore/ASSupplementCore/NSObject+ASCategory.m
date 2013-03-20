@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <MapKit/MapKit.h>
 
 #import "NSObject+ASCategory.h"
 #import "NSDate+ASCategory.h"
@@ -24,6 +25,14 @@ inline BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double doubl
 inline BOOL CLLocationCoordinate2DEqualToCoordinate(CLLocationCoordinate2D coordinate1, CLLocationCoordinate2D coordinate2)
 {
     return coordinate1.latitude == coordinate2.latitude && coordinate1.longitude == coordinate2.longitude;
+}
+
+inline CLLocationDistance metersBetweenLocationCoordinates(CLLocationCoordinate2D userLocationCoordinate, CLLocationCoordinate2D coordinate)
+{
+    MKMapPoint userLocationMapPoint = MKMapPointForCoordinate(userLocationCoordinate);
+    MKMapPoint mapPoint = MKMapPointForCoordinate(coordinate);
+    CLLocationDistance distance = MKMetersBetweenMapPoints(mapPoint, userLocationMapPoint);
+    return distance;
 }
 
 @implementation NSObject (ASCategory)

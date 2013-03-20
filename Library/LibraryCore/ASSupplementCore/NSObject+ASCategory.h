@@ -23,6 +23,7 @@
 BOOL doubleEqualToDouble(double double1, double double2);
 BOOL doubleEqualToDoubleWithAccuracyExponent(double double1, double double2 ,int accuracyExponent);
 BOOL CLLocationCoordinate2DEqualToCoordinate(CLLocationCoordinate2D coordinate1, CLLocationCoordinate2D coordinate2);
+CLLocationDistance metersBetweenLocationCoordinates(CLLocationCoordinate2D userLocationCoordinate, CLLocationCoordinate2D coordinate);
 
 @interface NSObject (ASCategory)
 
