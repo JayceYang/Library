@@ -113,6 +113,9 @@
 - (UITapGestureRecognizer *)addTapGestureRecognizerWithTarget:(id)target action:(SEL)action numberOfTapsRequired:(NSUInteger)numberOfTapsRequired;
 - (UITapGestureRecognizer *)addTapGestureRecognizerWithTarget:(id)target action:(SEL)action numberOfTapsRequired:(NSUInteger)numberOfTapsRequired delegate:(id <UIGestureRecognizerDelegate>)delegate;
 
+- (void)configureFrameAppendingX:(CGFloat)appending;
+- (void)configureFrameAppendingY:(CGFloat)appending;
+- (void)configureFrameAppendingWidth:(CGFloat)appending;
 - (void)configureFrameAppendingHeight:(CGFloat)appending;
 
 - (void)configureWithBorderColor:(UIColor *)borderColor borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius;

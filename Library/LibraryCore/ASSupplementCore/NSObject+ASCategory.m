@@ -113,6 +113,12 @@ inline CLLocationDistance metersBetweenLocationCoordinates(CLLocationCoordinate2
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
 }
 
+- (NSString *)countryCode
+{
+    NSString *countryCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
+    return countryCode;
+}
+
 - (NSString *)cachePath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);

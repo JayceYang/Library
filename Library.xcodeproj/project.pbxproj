@@ -54,6 +54,7 @@
 		286796E516883B3D00EDF957 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 286796E416883B3D00EDF957 /* CoreLocation.framework */; };
 		2876F3FD168C254100DD596A /* UIColor+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876F3FC168C254100DD596A /* UIColor+ASCategory.m */; };
 		289F8CAA16D11E7F004EEA2F /* NSLocale+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 289F8CA916D11E7F004EEA2F /* NSLocale+ASCategory.m */; };
+		28B4D19E17295411009CD8AD /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B4D19D17295411009CD8AD /* XMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +144,8 @@
 		2876F3FC168C254100DD596A /* UIColor+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ASCategory.m"; sourceTree = "<group>"; };
 		289F8CA816D11E7F004EEA2F /* NSLocale+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+ASCategory.h"; sourceTree = "<group>"; };
 		289F8CA916D11E7F004EEA2F /* NSLocale+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+ASCategory.m"; sourceTree = "<group>"; };
+		28B4D19C17295411009CD8AD /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		28B4D19D17295411009CD8AD /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +292,8 @@
 				284D202C1678873F00953E11 /* LoadingView.m */,
 				28545D14168D2BE300F0165D /* LocationManager.h */,
 				28545D15168D2BE300F0165D /* LocationManager.m */,
+				28B4D19C17295411009CD8AD /* XMLParser.h */,
+				28B4D19D17295411009CD8AD /* XMLParser.m */,
 				280DF2FA16928ECC00CA08DF /* CLLocation+ASCategory.h */,
 				280DF2FB16928ECC00CA08DF /* CLLocation+ASCategory.m */,
 				280DF3021692931800CA08DF /* CLPlacemark+ASCategory.h */,
@@ -404,6 +409,7 @@
 				281E11CC169B241A000ED5C4 /* CalloutAnnotation.m in Sources */,
 				281E11CD169B241A000ED5C4 /* CalloutAnnotationView.m in Sources */,
 				289F8CAA16D11E7F004EEA2F /* NSLocale+ASCategory.m in Sources */,
+				28B4D19E17295411009CD8AD /* XMLParser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

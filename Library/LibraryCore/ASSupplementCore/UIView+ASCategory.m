@@ -293,6 +293,27 @@
     return [tapGestureRecognizer autorelease];
 }
 
+- (void)configureFrameAppendingX:(CGFloat)appending
+{
+    CGRect rect = self.frame;
+    rect.origin.x += appending;
+    self.frame = rect;
+}
+
+- (void)configureFrameAppendingY:(CGFloat)appending
+{
+    CGRect rect = self.frame;
+    rect.origin.y += appending;
+    self.frame = rect;
+}
+
+- (void)configureFrameAppendingWidth:(CGFloat)appending
+{
+    CGRect rect = self.frame;
+    rect.size.width += appending;
+    self.frame = rect;
+}
+
 - (void)configureFrameAppendingHeight:(CGFloat)appending
 {
     CGRect rect = self.frame;

@@ -35,6 +35,7 @@ CLLocationDistance metersBetweenLocationCoordinates(CLLocationCoordinate2D userL
 - (void)standardUserDefaultsSetObject:(id)value forKey:(NSString *)key;
 - (NSString *)bundleVersion;
 - (NSString *)bundleDisplayName;
+- (NSString *)countryCode;
 
 - (NSString *)cachePath;
 - (NSString *)documentsPath;
