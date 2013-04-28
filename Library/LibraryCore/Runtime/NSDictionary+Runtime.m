@@ -59,7 +59,7 @@
 
     }
     free(ivars);
-    return object;
+    return [object autorelease];
         
 }
     

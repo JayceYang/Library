@@ -21,7 +21,7 @@
 - (NSArray *)makeObjectsDictionaryValue
 {
     NSInteger count = [self count];
-    NSMutableArray *mutableArray = [[NSMutableArray alloc]init];
+    NSMutableArray *mutableArray = [NSMutableArray array];
     for(int i = 0; i < count; ++i)
     {
         id obj = [self objectAtIndex:i];
@@ -34,7 +34,7 @@
         else
             [mutableArray addObject:[obj dictionaryValue]];
     }
-    return [mutableArray copy];
+    return [[mutableArray copy] autorelease];
 
 }
 
@@ -44,7 +44,7 @@
 - (NSArray *)makeObjectsClass:(Class)aClass
 {
     NSInteger count = [self count];
-    NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
+    NSMutableArray *mutableArray = [NSMutableArray array];
     for(int i = 0; i < count; ++i)
     {
         id obj = [self objectAtIndex:i];
@@ -60,7 +60,7 @@
         [mutableArray addObject:obj];
         
     }
-    return [mutableArray copy];
+    return [[mutableArray copy] autorelease];
 }
 
 @end

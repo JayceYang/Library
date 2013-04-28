@@ -71,7 +71,7 @@
     } else if (length == 15) {
         birthday = [NSString stringWithFormat:@"%d%@",19,[self substringWithRange:NSMakeRange(6, 6)]];
     }
-    return [self dateValueWithDateFormat:kDateFormatNatural];
+    return [birthday dateValueWithDateFormat:kDateFormatNatural];
 }
 
 - (CGFloat)heightWithFont:(UIFont *)font constrainedToWidth:(CGFloat)width

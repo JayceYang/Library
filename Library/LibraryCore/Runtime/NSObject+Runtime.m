@@ -20,7 +20,7 @@ static const char *GenericTypeKey = "genericTypeKey";
     Class clazz = [self class];
     u_int count;
     
-    NSMutableDictionary *dictionary = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
     Ivar* ivars = class_copyIvarList(clazz, &count);
     for (int i = 0; i < count ; i++)
     {
@@ -60,7 +60,7 @@ static const char *GenericTypeKey = "genericTypeKey";
         
     }
     free(ivars);
-    return [dictionary copy];
+    return [[dictionary copy] autorelease];
 }
 
 + (void)setGenericType:(NSDictionary *)type
