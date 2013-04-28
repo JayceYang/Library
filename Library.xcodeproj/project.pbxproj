@@ -55,6 +55,9 @@
 		2876F3FD168C254100DD596A /* UIColor+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2876F3FC168C254100DD596A /* UIColor+ASCategory.m */; };
 		289F8CAA16D11E7F004EEA2F /* NSLocale+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 289F8CA916D11E7F004EEA2F /* NSLocale+ASCategory.m */; };
 		28B4D19E17295411009CD8AD /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28B4D19D17295411009CD8AD /* XMLParser.m */; };
+		7640606C172CCAEE00E468AC /* NSArray+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 76406067172CCAEE00E468AC /* NSArray+Runtime.m */; };
+		7640606D172CCAEE00E468AC /* NSDictionary+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 76406069172CCAEE00E468AC /* NSDictionary+Runtime.m */; };
+		7640606E172CCAEE00E468AC /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 7640606B172CCAEE00E468AC /* NSObject+Runtime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +149,12 @@
 		289F8CA916D11E7F004EEA2F /* NSLocale+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+ASCategory.m"; sourceTree = "<group>"; };
 		28B4D19C17295411009CD8AD /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		28B4D19D17295411009CD8AD /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		76406066172CCAEE00E468AC /* NSArray+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Runtime.h"; sourceTree = "<group>"; };
+		76406067172CCAEE00E468AC /* NSArray+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Runtime.m"; sourceTree = "<group>"; };
+		76406068172CCAEE00E468AC /* NSDictionary+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Runtime.h"; sourceTree = "<group>"; };
+		76406069172CCAEE00E468AC /* NSDictionary+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Runtime.m"; sourceTree = "<group>"; };
+		7640606A172CCAEE00E468AC /* NSObject+Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Runtime.h"; sourceTree = "<group>"; };
+		7640606B172CCAEE00E468AC /* NSObject+Runtime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Runtime.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +240,7 @@
 		2843F9AD167044FE00135623 /* LibraryCore */ = {
 			isa = PBXGroup;
 			children = (
+				76406065172CCADE00E468AC /* Runtime */,
 				2843F9AE167044FE00135623 /* ASSupplementCore */,
 			);
 			path = LibraryCore;
@@ -304,6 +314,19 @@
 				281E11CB169B2419000ED5C4 /* CalloutAnnotationView.m */,
 			);
 			path = ASSupplementCore;
+			sourceTree = "<group>";
+		};
+		76406065172CCADE00E468AC /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				7640606A172CCAEE00E468AC /* NSObject+Runtime.h */,
+				7640606B172CCAEE00E468AC /* NSObject+Runtime.m */,
+				76406066172CCAEE00E468AC /* NSArray+Runtime.h */,
+				76406067172CCAEE00E468AC /* NSArray+Runtime.m */,
+				76406068172CCAEE00E468AC /* NSDictionary+Runtime.h */,
+				76406069172CCAEE00E468AC /* NSDictionary+Runtime.m */,
+			);
+			path = Runtime;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +433,9 @@
 				281E11CD169B241A000ED5C4 /* CalloutAnnotationView.m in Sources */,
 				289F8CAA16D11E7F004EEA2F /* NSLocale+ASCategory.m in Sources */,
 				28B4D19E17295411009CD8AD /* XMLParser.m in Sources */,
+				7640606C172CCAEE00E468AC /* NSArray+Runtime.m in Sources */,
+				7640606D172CCAEE00E468AC /* NSDictionary+Runtime.m in Sources */,
+				7640606E172CCAEE00E468AC /* NSObject+Runtime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
