@@ -112,7 +112,7 @@
     //animate into full size
     //First stage animates to 1.05x normal size, then second stage animates back down to 1x size.
     //This two-stage animation creates a little "pop" on open.
-    [UIView animateWithDuration:kLoadingViewAnimateDuration delay:0.f options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:kLoadingViewAnimateDuration delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.alpha = 1.f;
         self.transform = CGAffineTransformMakeScale(1.05f, 1.05f);
     } completion:^(BOOL finished) {
@@ -123,7 +123,7 @@
 - (void)disappear
 {
 //    ASLog("%@",self);
-    [UIView animateWithDuration:kLoadingViewAnimateDuration delay:0.f options:UIViewAnimationCurveEaseInOut animations:^{
+    [UIView animateWithDuration:kLoadingViewAnimateDuration delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.alpha = 0.f;
         self.transform = CGAffineTransformMakeScale(0.1f, 0.1f);
     } completion:^(BOOL finished) {
