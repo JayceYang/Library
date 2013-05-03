@@ -171,6 +171,16 @@ NSString * const kExtensionJPEG          = @"jpeg";
     return resultImage;
 }
 
+- (UIImage *)resizableImageWithZeroCapInsets
+{
+    return [self resizableImageWithCapInsets:UIEdgeInsetsZero];
+}
+
+- (UIImage *)resizableImageWithCenterCapInsets
+{
+    return [self resizableImageWithCapInsets:UIEdgeInsetsMake(self.size.height / 2, self.size.width / 2, self.size.height / 2, self.size.width / 2)];
+}
+
 - (NSString *)writeToFileNamed:(NSString *)name
 {
     return [self writeToFileNamed:name extension:kExtensionPNG];

@@ -17,6 +17,9 @@
 - (UIImage *)blackAndWhiteImage;
 - (UIImage *)imageWithCorrectiveRotation;
 
+- (UIImage *)resizableImageWithZeroCapInsets;
+- (UIImage *)resizableImageWithCenterCapInsets;
+
 - (NSString *)writeToFileNamed:(NSString *)name;
 - (NSString *)writeToFileNamed:(NSString *)name extension:(NSString *)extension;
 - (NSString *)writeToFileNamed:(NSString *)name compressionQuality:(CGFloat)quality;
