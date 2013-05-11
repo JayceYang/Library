@@ -32,7 +32,6 @@
 
 - (void)dealloc
 {
-    ASLog();
     [_detailViewController release];
     [_objects release];
     [super dealloc];
