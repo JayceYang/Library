@@ -48,6 +48,7 @@
 		2843F9E9167044FE00135623 /* UITextField+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D3167044FE00135623 /* UITextField+ASCategory.m */; };
 		2843F9EA167044FE00135623 /* UIView+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D5167044FE00135623 /* UIView+ASCategory.m */; };
 		2843F9EB167044FE00135623 /* UIViewController+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */; };
+		28492E5A174E1BC400C70622 /* UIAlertView+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 28492E59174E1BC300C70622 /* UIAlertView+ASCategory.m */; };
 		284D202D1678873F00953E11 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 284D202C1678873F00953E11 /* LoadingView.m */; };
 		28545D16168D2BE300F0165D /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28545D15168D2BE300F0165D /* LocationManager.m */; };
 		286796E2168838DA00EDF957 /* CLGeocoder+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 286796E1168838DA00EDF957 /* CLGeocoder+ASCategory.m */; };
@@ -136,6 +137,8 @@
 		2843F9D5167044FE00135623 /* UIView+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ASCategory.m"; sourceTree = "<group>"; };
 		2843F9D6167044FE00135623 /* UIViewController+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ASCategory.h"; sourceTree = "<group>"; };
 		2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ASCategory.m"; sourceTree = "<group>"; };
+		28492E58174E1BC300C70622 /* UIAlertView+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+ASCategory.h"; sourceTree = "<group>"; };
+		28492E59174E1BC300C70622 /* UIAlertView+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+ASCategory.m"; sourceTree = "<group>"; };
 		284D202B1678873F00953E11 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		284D202C1678873F00953E11 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		28545D14168D2BE300F0165D /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
@@ -312,6 +315,8 @@
 				281E11C9169B2419000ED5C4 /* CalloutAnnotation.m */,
 				281E11CA169B2419000ED5C4 /* CalloutAnnotationView.h */,
 				281E11CB169B2419000ED5C4 /* CalloutAnnotationView.m */,
+				28492E58174E1BC300C70622 /* UIAlertView+ASCategory.h */,
+				28492E59174E1BC300C70622 /* UIAlertView+ASCategory.m */,
 			);
 			path = ASSupplementCore;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				7640606C172CCAEE00E468AC /* NSArray+Runtime.m in Sources */,
 				7640606D172CCAEE00E468AC /* NSDictionary+Runtime.m in Sources */,
 				7640606E172CCAEE00E468AC /* NSObject+Runtime.m in Sources */,
+				28492E5A174E1BC400C70622 /* UIAlertView+ASCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

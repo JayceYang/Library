@@ -16,7 +16,7 @@
 {
     CLGeocoder *geocoder = [[[CLGeocoder alloc] init] autorelease];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-        completionHandler([placemarks firstObject],error);
+        completionHandler([placemarks theFirstObject],error);
     }];
 }
 

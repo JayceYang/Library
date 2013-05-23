@@ -12,8 +12,8 @@
 
 // returns a new array by sorting the objects of the receiver
 - (NSArray *)sortedArrayUsingDescriptorWithKey:(NSString *)key ascending:(BOOL)ascending;
-- (id)objectAtTheIndex:(NSInteger)index;
-- (id)firstObject;
+- (id)objectAtTheIndex:(NSUInteger)index;
+- (id)theFirstObject;
 - (id)theLastObject;
 
 @end

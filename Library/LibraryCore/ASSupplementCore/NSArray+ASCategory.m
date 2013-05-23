@@ -18,34 +18,28 @@
     return [self sortedArrayUsingDescriptors:sortDescriptors];
 }
 
-- (id)objectAtTheIndex:(NSInteger)index
+- (id)objectAtTheIndex:(NSUInteger)index
 {
-    if (![self isKindOfClass:[NSArray class]]) {
-        ASLog(@"%@ is not array type", NSStringFromClass([self class]));
-        return nil;
-    } else if (index >= self.count) {
-        ASLog(@"index (%d) beyond bounds (%d)", index, self.count);
-        return nil;
-    }  else if (index < 0) {
-        ASLog(@"index (%d) is invalid", index);
-        return nil;
-    } else {
-        return [self objectAtIndex:index];
+    id result = nil;
+    @try {
+        result = [self objectAtIndex:index];
+    }
+    @catch (NSException *exception) {
+        ASLog(@"%@",exception.reason);
+    }
+    @finally {
+        return result;
     }
 }
 
-- (id)firstObject
+- (id)theFirstObject
 {
     return [self objectAtTheIndex:0];
 }
 
 - (id)theLastObject
 {
-    if (self.count > 0) {
-        return [self objectAtTheIndex:self.count - 1];
-    } else {
-        return nil;
-    }
+    return [self objectAtTheIndex:self.count - 1];
 }
 
 @end

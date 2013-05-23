@@ -31,6 +31,7 @@
 #import "CLPlacemark+ASCategory.h"
 #import "UIColor+ASCategory.h"
 #import "CLLocation+ASCategory.h"
+#import "UIAlertView+ASCategory.h"
 #import "ASGeometry.h"
 #import "CalloutAnnotation.h"
 #import "CalloutAnnotationView.h"

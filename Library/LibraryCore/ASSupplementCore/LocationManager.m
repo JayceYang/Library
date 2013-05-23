@@ -96,7 +96,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     if (_successHandler) {
-        _successHandler([locations firstObject]);
+        _successHandler([locations theFirstObject]);
         if (_stopUpdatingWhenSuccess) {
             [self stopUpdatingLocation];
         }
