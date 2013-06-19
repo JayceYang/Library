@@ -27,7 +27,6 @@
 		2843F882167038E600135623 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2843F881167038E600135623 /* Default-568h@2x.png */; };
 		2843F8981670390F00135623 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F8951670390F00135623 /* DetailViewController.m */; };
 		2843F8991670390F00135623 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F8971670390F00135623 /* MasterViewController.m */; };
-		2843F89C1670393800135623 /* Cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2843F89B1670393800135623 /* Cloud@2x.png */; };
 		2843F91E167039CD00135623 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F91D167039CD00135623 /* QuartzCore.framework */; };
 		2843F920167039D600135623 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2843F91F167039D600135623 /* MapKit.framework */; };
 		2843F9D9167044FE00135623 /* ASMaskdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9B2167044FE00135623 /* ASMaskdView.m */; };
@@ -49,6 +48,8 @@
 		2843F9EA167044FE00135623 /* UIView+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D5167044FE00135623 /* UIView+ASCategory.m */; };
 		2843F9EB167044FE00135623 /* UIViewController+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */; };
 		28492E5A174E1BC400C70622 /* UIAlertView+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 28492E59174E1BC300C70622 /* UIAlertView+ASCategory.m */; };
+		284ACB4D17573B2F00882A79 /* Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 284ACB4C17573B2F00882A79 /* Cloud.png */; };
+		284ACB4F17573C3600882A79 /* Cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 284ACB4E17573C3600882A79 /* Cloud@2x.png */; };
 		284D202D1678873F00953E11 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 284D202C1678873F00953E11 /* LoadingView.m */; };
 		28545D16168D2BE300F0165D /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 28545D15168D2BE300F0165D /* LocationManager.m */; };
 		286796E2168838DA00EDF957 /* CLGeocoder+ASCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 286796E1168838DA00EDF957 /* CLGeocoder+ASCategory.m */; };
@@ -97,7 +98,6 @@
 		2843F8961670390F00135623 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		2843F8971670390F00135623 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		2843F89A1670392500135623 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		2843F89B1670393800135623 /* Cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud@2x.png"; sourceTree = "<group>"; };
 		2843F91D167039CD00135623 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2843F91F167039D600135623 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2843F9B1167044FE00135623 /* ASMaskdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMaskdView.h; sourceTree = "<group>"; };
@@ -139,6 +139,8 @@
 		2843F9D7167044FE00135623 /* UIViewController+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ASCategory.m"; sourceTree = "<group>"; };
 		28492E58174E1BC300C70622 /* UIAlertView+ASCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+ASCategory.h"; sourceTree = "<group>"; };
 		28492E59174E1BC300C70622 /* UIAlertView+ASCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+ASCategory.m"; sourceTree = "<group>"; };
+		284ACB4C17573B2F00882A79 /* Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud.png; sourceTree = "<group>"; };
+		284ACB4E17573C3600882A79 /* Cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud@2x.png"; sourceTree = "<group>"; };
 		284D202B1678873F00953E11 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		284D202C1678873F00953E11 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		28545D14168D2BE300F0165D /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
@@ -235,7 +237,8 @@
 				2843F87D167038E600135623 /* Default.png */,
 				2843F87F167038E600135623 /* Default@2x.png */,
 				2843F881167038E600135623 /* Default-568h@2x.png */,
-				2843F89B1670393800135623 /* Cloud@2x.png */,
+				284ACB4C17573B2F00882A79 /* Cloud.png */,
+				284ACB4E17573C3600882A79 /* Cloud@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -390,8 +393,9 @@
 				2843F87E167038E600135623 /* Default.png in Resources */,
 				2843F880167038E600135623 /* Default@2x.png in Resources */,
 				2843F882167038E600135623 /* Default-568h@2x.png in Resources */,
-				2843F89C1670393800135623 /* Cloud@2x.png in Resources */,
 				281E089A1671FC0B00065AE6 /* README.md in Resources */,
+				284ACB4D17573B2F00882A79 /* Cloud.png in Resources */,
+				284ACB4F17573C3600882A79 /* Cloud@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

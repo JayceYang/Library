@@ -36,6 +36,7 @@ CLLocationDistance metersBetweenLocationCoordinates(CLLocationCoordinate2D userL
 - (NSString *)bundleVersion;
 - (NSString *)bundleDisplayName;
 - (NSString *)countryCode;
+- (NSString *)launchImageName;
 
 - (NSString *)cachePath;
 - (NSString *)documentsPath;

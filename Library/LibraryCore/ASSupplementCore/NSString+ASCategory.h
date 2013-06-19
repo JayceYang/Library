@@ -11,6 +11,7 @@
 @interface NSString (ASCategory)
 
 - (NSDate *)dateValueWithDateFormat:(NSString *)format;
+- (NSNumber *)numberValue;
 
 - (BOOL)matchWithPattern:(NSString *)pattern;
 - (BOOL)isValidNumber;

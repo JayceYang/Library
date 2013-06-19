@@ -119,6 +119,28 @@ inline CLLocationDistance metersBetweenLocationCoordinates(CLLocationCoordinate2
     return countryCode;
 }
 
+- (NSString *)launchImageName
+{
+    NSString *launchImageName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"UILaunchImageFile"];
+    NSMutableString *result = nil;
+    if (launchImageName.length > 0) {
+        if (CGRectGetHeight([UIScreen mainScreen].bounds) > 480) {
+            result = [[launchImageName mutableCopy] autorelease];
+            NSRange range = [result rangeOfString:@"." options:NSBackwardsSearch];
+            NSUInteger length = range.length;
+            NSUInteger location = range.location;
+            if (length > 0 && location > 0 && location < result.length - 1) {
+                [result insertString:@"-568h" atIndex:location];
+            }
+            return [[result copy] autorelease];
+        } else {
+            return launchImageName;
+        }
+    } else {
+        return nil;
+    }
+}
+
 - (NSString *)cachePath
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);

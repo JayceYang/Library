@@ -21,6 +21,17 @@
     return [formatter dateFromString:self];
 }
 
+- (NSNumber *)numberValue
+{
+    if ([self isKindOfClass:[NSString class]]) {
+        NSNumberFormatter *numberFormatter = [[[NSNumberFormatter alloc] init] autorelease];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        return [numberFormatter numberFromString:self];
+    } else {
+        return nil;
+    }
+}
+
 - (BOOL)matchWithPattern:(NSString *)pattern
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
